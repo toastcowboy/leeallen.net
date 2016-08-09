@@ -1,0 +1,138 @@
+@import '../../node_modules/normalize.css/normalize';
+
+@mixin mqDesktop {
+  @media (min-width: 500px) {
+    @content;
+  }
+}
+
+a {
+  color: #d74426;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+html {
+  color: #111;
+  font-size: 3.125vw;
+  line-height: 1.5;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+
+  @include mqDesktop {
+    font-size: 15.625px;
+  }
+}
+
+body {
+  align-content: center;
+  align-items: center;
+  background: #eee;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+}
+
+.container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.header {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  &__head {
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin: 0.5em 0 0;
+  }
+
+  &__pic {
+    border-radius: 100%;
+    display: block;
+    font-size: 2.4rem;
+    margin: 0.5em auto;
+    max-width: 250px;
+    width: 50vw;
+  }
+
+  &__subhead {
+    border-bottom: solid 1px #999;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0.5em 0;
+    padding-bottom: 0.8em;
+    width: 100%;
+
+    @include mqDesktop {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+      width: auto;
+    }
+  }
+}
+
+.navigation {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
+
+  &__link {
+    display: block;
+  }
+
+  &__list {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    margin: 0.5em 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  &__list-item {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+
+    &:after {
+      color: #999;
+      content: '•';
+      padding: 0 0.5em;
+    }
+
+    &:last-of-type:after {
+      content: '';
+      padding: 0;
+    }
+  }
+
+  &.navigation--secondary {
+    font-size: 1rem;
+  }
+}
