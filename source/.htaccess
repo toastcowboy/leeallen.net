@@ -667,5 +667,4 @@ FileETag None
 # ------------------------------------------------------------------------------
 
 Redirect 301 /_media/documents/resume.pdf http://leeallen.net/downloads/resume.pdf
-Redirect 302 /portfolio http://leeallen.net/version/1/portfolio
 Redirect 302 /resume http://leeallen.net/downloads/resume.pdf
