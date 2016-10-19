@@ -4,7 +4,7 @@
   "description": "Lee Allen’s personal site",
   "main": "gulpfile.js",
   "scripts": {
-    "serve": "gulp serve # Start development server"
+    "start": "gulp serve # Start development server"
   },
   "repository": {
     "type": "git",
