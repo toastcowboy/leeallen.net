@@ -2,10 +2,45 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' ws://localhost:3000 *.typekit.net *.google-analytics.com">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lee Allen — UX Engineering Lead in Chicago</title>
+  <meta name="coverage" content="Worldwide">
+  <meta name="rating" content="General">
   <meta name="description" content="The personal site of Lee Allen">
+  <meta name="ICBM" content="41.960833, -87.648611">
+  <link rel="author" href="humans.txt">
+  <link rel="icon" href="images/favicons/16.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="images/favicons/32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicons/48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="images/favicons/62.png" sizes="62x62" type="image/png">
+  <link rel="icon" href="images/favicons/192.png" sizes="192x192" type="image/png">
+
+  <!-- Facebook / Open Graph -->
+  <meta property="og:url" content="http://leeallen.net">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lee Allen — UX Engineering Lead in Chicago">
+  <meta property="og:image" content="http://leeallen.net/images/me.jpg">
+  <meta property="og:description" content="The personal site of Lee Allen">
+  <meta property="og:site_name" content="leeallen.net">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="Lee Allen">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@toastcowboy">
+  <meta name="twitter:url" content="http://leeallen.net">
+  <meta name="twitter:title" content="Lee Allen — UX Engineering Lead in Chicago">
+  <meta name="twitter:description" content="The personal site of Lee Allen">
+  <meta name="twitter:image" content="http://leeallen.net/images/me.jpg">
+
+  <!-- Google+ / Schema.org -->
+  <link href="https://plus.google.com/+YourPage" rel="publisher">
+  <meta itemprop="name" content="Lee Allen — UX Engineering Lead in Chicago">
+  <meta itemprop="description" content="The personal site of Lee Allen">
+  <meta itemprop="image" content="http://leeallen.net/images/me.jpg">
+
   <link rel="stylesheet" href="styles/main.css">
   <script src="https://use.typekit.net/cdd6oee.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -20,6 +55,7 @@
   <nav role="navigation" class="navigation navigation--primary">
     <ul class="navigation__list">
       <li class="navigation__list-item"><a class="navigation__link" href="downloads/resume.pdf">Resume</a></li>
+      <li class="navigation__list-item"><a class="navigation__link" href="downloads/portfolio.pdf">Portfolio</a></li>
     </ul>
   </nav>
   <nav role="navigation" class="navigation navigation--secondary">
@@ -36,21 +72,6 @@
     </ul>
   </nav>
 </main>
-<script>
-  (function (b, o, i, l, e, r) {
-  b.GoogleAnalyticsObject = l;
-  b[l] || (b[l] =
-    function () {
-      (b[l].q = b[l].q || []).push(arguments)
-    });
-  b[l].l = +new Date;
-  e = o.createElement(i);
-  r = o.getElementsByTagName(i)[0];
-  e.src = '//www.google-analytics.com/analytics.js';
-  r.parentNode.insertBefore(e, r)
-}(window, document, 'script', 'ga'));
-ga('create', 'UA-474631-1');
-ga('send', 'pageview');
-</script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
