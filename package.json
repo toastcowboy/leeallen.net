@@ -26,6 +26,6 @@
     "gulp-sourcemaps": "^1.6.0"
   },
   "dependencies": {
-    "normalize.css": "^4.2.0"
+    "normalize.css": "^5.0.0"
   }
 }
