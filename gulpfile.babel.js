@@ -119,3 +119,15 @@ gulp.task('serve', ['css'], () => {
   gulp.watch([`${paths.source}/**/*`], browserSyncInstance.reload);
   gulp.watch([`${paths.source}/styles/**/*.scss`], ['css']);
 });
+
+gulp.task('serve:build', ['build'], () => {
+  browserSyncInstance.init({
+    ghostMode: false,
+    notify: false,
+    open: false,
+    server: {
+      baseDir: paths.build,
+      routes: {},
+    }
+  });
+});
