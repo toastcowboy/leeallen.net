@@ -2,13 +2,22 @@ import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
 import cssnano from 'cssnano';
 import del from 'del';
+import gifsicle from 'imagemin-gifsicle';
 import gulp from 'gulp';
 import htmlmin from 'gulp-htmlmin';
+import imagemin from 'gulp-imagemin';
+import jpegoptim from 'imagemin-jpegoptim';
+import optipng from 'imagemin-optipng';
+import os from 'os';
+import parallel from 'concurrent-transform';
+import pngquant from 'imagemin-pngquant';
 import postcss from 'gulp-postcss';
 import runSequence from 'run-sequence';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
+import svgo from 'imagemin-svgo';
 
+const cores = os.cpus().length;
 const browserSyncInstance = browserSync.create();
 const paths = {
   build: 'build',
@@ -59,7 +68,9 @@ gulp.task('build:html', () => {
 });
 
 gulp.task('build:images', () => {
-  return gulp.src(`${paths.source}/images/**/*`)
+  // TODO: Add more fine-grained image optimization including WebP support
+  return gulp.src(`${paths.source}/images/**/*.{png,jpg,jpeg,gif,svg}`)
+    .pipe(parallel(imagemin(), cores))
     .pipe(gulp.dest(`${paths.build}/images`));
 });
 
