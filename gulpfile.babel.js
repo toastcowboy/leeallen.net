@@ -12,10 +12,12 @@ import os from 'os';
 import parallel from 'concurrent-transform';
 import pngquant from 'imagemin-pngquant';
 import postcss from 'gulp-postcss';
+import pump from 'pump';
 import runSequence from 'run-sequence';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 import svgo from 'imagemin-svgo';
+import uglify from 'gulp-uglify';
 
 const cores = os.cpus().length;
 const browserSyncInstance = browserSync.create();
@@ -75,8 +77,11 @@ gulp.task('build:images', () => {
 });
 
 gulp.task('build:scripts', () => {
-  return gulp.src(`${paths.source}/scripts/**/*`)
-    .pipe(gulp.dest(`${paths.build}/scripts`));
+  pump([
+    gulp.src(`${paths.source}/scripts/**/*`),
+    uglify(),
+    gulp.dest(`${paths.build}/scripts`),
+  ], () => {});
 });
 
 gulp.task('build:styles', () => {
