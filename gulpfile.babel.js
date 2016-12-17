@@ -45,8 +45,11 @@ gulp.task('build:copy', () => {
     `${paths.source}/**/*`,
     `!${paths.source}/*.html`,
     `!${paths.source}/images`,
+    `!${paths.source}/images/**/*`,
     `!${paths.source}/styles`,
+    `!${paths.source}/styles/**/*`,
     `!${paths.source}/scripts`,
+    `!${paths.source}/scripts/**/*`,
   ])
     .pipe(gulp.dest(paths.build));
 });
