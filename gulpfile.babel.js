@@ -34,19 +34,21 @@ gulp.task('build:clean', () => {
 });
 
 gulp.task('build:copy', () => {
-  return gulp.src([
-    `${paths.source}/.*`,
-    `${paths.source}/*.*`,
-    `${paths.source}/**/*`,
-    `!${paths.source}/*.html`,
-    `!${paths.source}/images`,
-    `!${paths.source}/images/**/*`,
-    `!${paths.source}/styles`,
-    `!${paths.source}/styles/**/*`,
-    `!${paths.source}/scripts`,
-    `!${paths.source}/scripts/**/*`,
-  ])
-    .pipe(gulp.dest(paths.build));
+  pump([
+    gulp.src([
+      `${paths.source}/.*`,
+      `${paths.source}/*.*`,
+      `${paths.source}/**/*`,
+      `!${paths.source}/*.html`,
+      `!${paths.source}/images`,
+      `!${paths.source}/images/**/*`,
+      `!${paths.source}/styles`,
+      `!${paths.source}/styles/**/*`,
+      `!${paths.source}/scripts`,
+      `!${paths.source}/scripts/**/*`,
+    ]),
+    gulp.dest(paths.build),
+  ], () => {});
 });
 
 gulp.task('build:html', () => {
@@ -62,16 +64,20 @@ gulp.task('build:html', () => {
     removeStyleLinkTypeAttributes: true,
   };
 
-  return gulp.src(`${paths.source}/*.html`)
-    .pipe(htmlmin(config))
-    .pipe(gulp.dest(paths.build));
+  pump([
+    gulp.src(`${paths.source}/*.html`),
+    htmlmin(config),
+    gulp.dest(paths.build),
+  ], () => {});
 });
 
 gulp.task('build:images', () => {
   // TODO: Add more fine-grained image optimization including WebP support
-  return gulp.src(`${paths.source}/images/**/*.{png,jpg,jpeg,gif,svg}`)
-    .pipe(parallel(imagemin(), cores))
-    .pipe(gulp.dest(`${paths.build}/images`));
+  pump([
+    gulp.src(`${paths.source}/images/**/*.{png,jpg,jpeg,gif,svg}`),
+    parallel(imagemin(), cores),
+    gulp.dest(`${paths.build}/images`),
+  ], () => {});
 });
 
 gulp.task('build:scripts', () => {
@@ -88,10 +94,12 @@ gulp.task('build:styles', () => {
     cssnano(),
   ];
 
-  return gulp.src(`${paths.source}/styles/main.scss`)
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(postcss(processors))
-    .pipe(gulp.dest(`${paths.build}/styles`));
+  pump([
+    gulp.src(`${paths.source}/styles/main.scss`),
+    sass.sync().on('error', sass.logError),
+    postcss(processors),
+    gulp.dest(`${paths.build}/styles`),
+  ], () => {});
 });
 
 gulp.task('css', () => {
