@@ -18,6 +18,11 @@ import tar from 'gulp-tar';
 import uglify from 'gulp-uglify';
 
 const cores = os.cpus().length;
+const browserSyncBaseConfig = {
+  ghostMode: false,
+  notify: false,
+  open: false,
+};
 const browserSyncInstance = browserSync.create();
 const paths = {
   build: 'build',
@@ -165,28 +170,16 @@ gulp.task('css', () => {
 });
 
 gulp.task('serve', ['css'], () => {
-  browserSyncInstance.init({
-    ghostMode: false,
-    notify: false,
-    open: false,
-    server: {
-      baseDir: ['.tmp', paths.source],
-      routes: {},
-    }
-  });
+  const config = browserSyncBaseConfig;
+  config.server = { baseDir: ['.tmp', paths.source] };
+  browserSyncInstance.init(config);
 
   gulp.watch([`${paths.source}/**/*`], browserSyncInstance.reload);
   gulp.watch([`${paths.source}/styles/**/*.scss`], ['css']);
 });
 
 gulp.task('serve:build', ['build'], () => {
-  browserSyncInstance.init({
-    ghostMode: false,
-    notify: false,
-    open: false,
-    server: {
-      baseDir: paths.build,
-      routes: {},
-    }
-  });
+  const config = browserSyncBaseConfig;
+  config.server = { baseDir: paths.build };
+  browserSyncInstance.init(config);
 });
