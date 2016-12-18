@@ -28,11 +28,14 @@
     "cssnano": "^3.7.3",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-gzip": "^1.4.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-imagemin": "^3.1.1",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-ssh": "^0.6.0",
+    "gulp-tar": "^1.9.0",
     "gulp-uglify": "^2.0.0",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpegoptim": "^5.0.0",
@@ -40,7 +43,6 @@
     "imagemin-pngquant": "^5.0.0",
     "imagemin-svgo": "^5.2.0",
     "os": "^0.1.1",
-    "pump": "^1.0.1",
     "run-sequence": "^1.2.2"
   },
   "dependencies": {

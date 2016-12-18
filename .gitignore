@@ -145,5 +145,8 @@ jspm_packages
 
 ### Custom
 
-source/styles/*.css
 .tmp
+build.tar.gz
+sshConfig.js
+sshLogs
+source/styles/*.css
