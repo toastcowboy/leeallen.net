@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' ws://localhost:3000 *.typekit.net *.google-analytics.com">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' 'unsafe-inline' ws://localhost:3000 *.typekit.net *.google-analytics.com">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lee Allen — Lead UX Engineer</title>
@@ -35,42 +36,25 @@
   <meta name="twitter:description" content="The personal site of Lee Allen">
   <meta name="twitter:image" content="http://leeallen.net/images/me.jpg">
 
-  <!-- Google+ / Schema.org -->
-  <link href="https://plus.google.com/+YourPage" rel="publisher">
-  <meta itemprop="name" content="Lee Allen — Lead UX Engineer">
-  <meta itemprop="description" content="The personal site of Lee Allen">
-  <meta itemprop="image" content="http://leeallen.net/images/me.jpg">
-
   <link rel="stylesheet" href="styles/main.css">
+
   <script src="https://use.typekit.net/cdd6oee.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body>
-<header role="banner" class="header">
-  <img class="header__pic" src="images/me.jpg" alt="Photo of Lee">
-  <h1 class="header__head">Lee Allen</h1>
-  <h2 class="header__subhead">Lead UX Engineer</h2>
-</header>
-<main role="main" class="container">
-  <nav role="navigation" class="navigation navigation--primary">
-    <ul class="navigation__list">
-      <li class="navigation__list-item"><a class="navigation__link" href="downloads/resume.pdf">Resume</a></li>
+<div class="container">
+  <header role="banner" class="header">
+    <img class="header__pic" src="images/me.jpg" alt="Photo of Lee">
+    <h1>Lee Allen</h1>
+    <h2>Lead UX Engineer</h2>
+    <ul class="header__links">
+      <li class="header__links__item"><a href="downloads/resume.pdf">Resume</a></li>
+      <li class="header__links__item"><a href="https://linkedin.com/in/toastcowboy">LinkedIn</a></li>
+      <li class="header__links__item"><a href="https://twitter.com/toastcowboy">Twitter</a></li>
+      <li class="header__links__item"><a href="https://instagram.com/toastcowboy">Instagram</a></li>
     </ul>
-  </nav>
-  <nav role="navigation" class="navigation navigation--secondary">
-    <ul class="navigation__list">
-      <li class="navigation__list-item">
-        <a class="navigation__link" href="https://twitter.com/toastcowboy">Twitter</a>
-      </li>
-      <li class="navigation__list-item">
-        <a class="navigation__link" href="https://instagram.com/toastcowboy">Instagram</a>
-      </li>
-      <li class="navigation__list-item">
-        <a class="navigation__link" href="https://linkedin.com/in/toastcowboy">LinkedIn</a>
-      </li>
-    </ul>
-  </nav>
-</main>
+  </header>
+</div>
 <script src="scripts/main.js"></script>
 </body>
 </html>
