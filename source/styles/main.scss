@@ -1,5 +1,9 @@
 @import '../../node_modules/normalize.css/normalize';
 
+$colorDark: #111;
+$colorHighlight: #d74426;
+$colorLight: #eee;
+
 * {
   box-sizing: border-box;
 }
@@ -13,18 +17,62 @@ a {
 }
 
 body {
-  background-color: #fff;
-  color: #000;
+  align-items: center;
+  background: repeating-linear-gradient(45deg, #fff 0, #fff 25%, rgba(0, 0, 0, 0.025) 0, rgba(0, 0, 0, 0.025) 50%);
+  background-size: 1.25vw 1.25vw;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 html {
+  color: $colorDark;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.5;
+  font-size: 4.6875vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
   text-rendering: optimizeLegibility;
 }
 
+h1 {
+  font-size: inherit;
+  font-weight: 600;
+  margin: 0;
+}
+
+h2 {
+  font-size: inherit;
+  font-weight: 400;
+  margin: 0 0 1rem;
+}
+
 .container {
-  margin: 20px auto;
-  max-width: 50rem;
-  padding: 0 20px;
+  margin: 0 auto 5vh;
+  padding: 1rem 5.625vw;
+  width: 100%;
+}
+
+.header {
+  &__pic {
+    border: 2.8125vw solid #fff;
+    box-shadow: .3125vw .3125vw .3125vw .3125vw rgba(0, 0, 0, 0.1);
+    float: left;
+    margin-right: 5.625vw;
+    outline: .3125vw dotted rgba(0, 0, 0, 0.1);
+    outline-offset: -3.125vw;
+    transform: rotate(-2deg);
+    width: 41.5625vw;
+  }
+
+  &__links {
+    list-style: none;
+    margin: .5rem 0;
+    padding: 0;
+
+    &__item {
+      font-size: .75rem;
+      margin-bottom: .125rem;
+    }
+  }
 }
