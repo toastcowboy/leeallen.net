@@ -19,6 +19,7 @@
   "dependencies": {
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
-    "gatsby-plugin-robots-txt": "^1.1.0"
+    "gatsby-plugin-robots-txt": "^1.1.0",
+    "gatsby-plugin-sitemap": "^1.2.25"
   }
 }
