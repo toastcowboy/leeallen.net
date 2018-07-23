@@ -22,6 +22,7 @@ module.exports = {
             disallow: [
               '/sandbox/',
               '/version/',
+              '/work/'
             ],
           },
         ],
