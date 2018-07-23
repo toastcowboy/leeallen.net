@@ -20,15 +20,35 @@ const NavItem = props => {
   );
 };
 
-export default props => (
-  <header className={styles.header}>
-    <img className={styles.navLogo} src={logo} width="32" height="32" alt="Logo"/>
-    <nav className={styles.nav}>
-      <ol className={styles.navList}>
-        <NavItem href="/" label="Home" pathname={props.pathname}/>
-        <NavItem href="/work" label="Work" pathname={props.pathname}/>
-        <NavItem href="/word" label="Writing" pathname={props.pathname}/>
-      </ol>
-    </nav>
-  </header>
-);
+export default props => {
+  const navItems = [
+    {
+      href: '/',
+      label: 'Home'
+    },
+    {
+      href: '/work',
+      label: 'Work'
+    },
+    {
+      href: '/word',
+      label: 'Writing'
+    },
+  ];
+
+  return (
+    <header className={styles.header}>
+      <img className={styles.navLogo} src={logo} width="32" height="32" alt="Logo"/>
+      <nav className={styles.nav}>
+        <ol className={styles.navList}>
+          {navItems.map((navItem, index) =>
+            <NavItem
+              href={navItem.href}
+              key={index}
+              label={navItem.label}
+              pathname={props.pathname}/>)}
+        </ol>
+      </nav>
+    </header>
+  );
+};
