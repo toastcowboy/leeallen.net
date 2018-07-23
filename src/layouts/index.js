@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Footer from '../components/footer';
 import Header from '../components/header';
 
 const styles = {
@@ -12,7 +13,8 @@ export default ({children}) => (
     <div/>
     <div>
       <Header/>
-      {children()}
+      <main>{children()}</main>
+      <Footer/>
     </div>
     <div/>
   </div>
