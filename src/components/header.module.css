@@ -28,13 +28,21 @@
   text-decoration: none;
 }
 
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.navLinkActive {
+  text-decoration: underline;
+}
+
+.navLinkActive:hover {
+  text-decoration: none;
+}
+
 .navLogo {
   grid-column: 1 / 1;
   margin-bottom: 0;
-}
-
-.navLink:hover {
-  text-decoration: underline;
 }
 
 .navList {
