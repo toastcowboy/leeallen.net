@@ -5,7 +5,7 @@ import logo from '../assets/icons/logo.svg';
 import styles from './header.module.css';
 
 const NavItem = props => (
-  <li className={styles.navItem}>
+  <li className={[styles.navItem, 'typography-semi-bold', 'typography-small'].join(' ')}>
     <Link className={styles.navLink} to={props.href}>{props.label}</Link>
   </li>
 );

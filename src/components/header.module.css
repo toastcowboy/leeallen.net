@@ -1,5 +1,8 @@
+@value variables: '../utils/variables.module.css';
+@value colorLightGray from variables;
+
 .header {
-  background-color: hsl(0, 0%, 95%);
+  background-color: colorLightGray;
   column-gap: 16px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -16,8 +19,6 @@
 
 .navItem {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
   margin-bottom: 0;
   padding-right: 8ch;
 }

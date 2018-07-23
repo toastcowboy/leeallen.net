@@ -1,6 +1,14 @@
 import Typography from 'typography';
 
-const typography = new Typography(
+const fontStack = [
+  'Raleway',
+  'Helvetica Neue',
+  'Helvetica',
+  'Arial',
+  'sans-serif',
+];
+
+export default new Typography(
   {
     baseFontSize: '16px',
     baseLineHeight: 1.5,
@@ -14,8 +22,8 @@ const typography = new Typography(
         ],
       },
     ],
-    headerFontFamily: ['Raleway', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif',],
-    bodyFontFamily: ['Raleway', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif',],
+    headerFontFamily: fontStack,
+    bodyFontFamily: fontStack,
     headerColor: 'inherit',
     bodyColor: 'hsl(0, 0%, 0%, 0.8)',
     headerWeight: 600,
@@ -23,23 +31,16 @@ const typography = new Typography(
     boldWeight: 600,
     blockMarginBottom: '24px',
     includeNormalize: true,
-    // overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
-    //   h1: {
-    //     fontFamily: ['Montserrat', 'sans-serif'].join(','),
-    //   },
-    //   blockquote: {
-    //     ...adjustFontSizeTo('19px'),
-    //     color: gray(41),
-    //     fontStyle: 'italic',
-    //     paddingLeft: rhythm(13 / 16),
-    //     marginLeft: rhythm(-1),
-    //     borderLeft: `${rhythm(3 / 16)} solid ${gray(10)}`,
-    //   },
-    //   'blockquote > :last-child': {
-    //     marginBottom: 0,
-    //   },
-    // }),
+    overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
+      '.typography-regular': {
+        fontWeight: 400,
+      },
+      '.typography-semi-bold': {
+        fontWeight: 600,
+      },
+      '.typography-small': {
+        ...adjustFontSizeTo('12px'),
+      },
+    }),
   },
 );
-
-export default typography;

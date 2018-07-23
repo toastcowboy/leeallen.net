@@ -1,6 +1,8 @@
+@value variables: '../utils/variables.module.css';
+@value colorLightGray from variables;
+
 .footer {
-  background-color: hsl(0, 0%, 95%);
-  font-size: 12px;
+  background-color: colorLightGray;
   line-height: 32px;
   margin-top: 20px;
   padding: 0 16px;
