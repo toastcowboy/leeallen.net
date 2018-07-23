@@ -8,7 +8,7 @@ import styles from './index.module.css';
 export default ({children}) => (
   <div className={styles.container}>
     <div/>
-    <div>
+    <div className={styles.content}>
       <Header/>
       <main>{children()}</main>
       <Footer/>
