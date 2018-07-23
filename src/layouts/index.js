@@ -3,13 +3,10 @@ import React from 'react';
 import Footer from '../components/footer';
 import Header from '../components/header';
 
-const styles = {
-  display: 'grid',
-  gridTemplateColumns: '1fr minmax(45ch, 70ch) 1fr',
-};
+import styles from './index.module.css';
 
 export default ({children}) => (
-  <div style={styles}>
+  <div className={styles.container}>
     <div/>
     <div>
       <Header/>
