@@ -9,7 +9,6 @@ const styles = {
 
 export default ({children}) => (
   <div style={styles}>
-
     <div/>
     <div>
       <Header/>

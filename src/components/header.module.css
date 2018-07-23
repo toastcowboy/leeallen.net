@@ -1,0 +1,43 @@
+.header {
+  background-color: hsl(0, 0%, 95%);
+  column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 20px;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+}
+
+.nav {
+  grid-column: 2 / 5;
+  line-height: 32px;
+}
+
+.navItem {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding-right: 8ch;
+}
+
+.navLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navLogo {
+  grid-column: 1 / 1;
+  margin-bottom: 0;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
