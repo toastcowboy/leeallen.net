@@ -39,8 +39,6 @@ export default new Typography({
     '.typography-h6': styles.h6,
     '.typography-regular': options.bodyWeight,
     '.typography-semi-bold': options.boldWeight,
-    '.typography-small': {
-      ...adjustFontSizeTo('12px'),
-    },
+    '.typography-small': { ...adjustFontSizeTo('12px') },
   }),
 });

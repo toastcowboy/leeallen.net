@@ -20,7 +20,11 @@
 .navItem {
   display: inline-block;
   margin-bottom: 0;
-  padding-right: 8ch;
+  padding-right: 12%;
+}
+
+.navItem:last-of-type {
+  padding-right: 0;
 }
 
 .navLink {
