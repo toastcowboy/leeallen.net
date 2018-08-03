@@ -31,6 +31,8 @@ export default new Typography({
   blockMarginBottom: '24px',
   includeNormalize: true,
   overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
+    'a': { color: options.bodyColor },
+    'a:hover': { textDecoration: 'none' },
     '.typography-h1': styles.h1,
     '.typography-h2': styles.h2,
     '.typography-h3': styles.h3,

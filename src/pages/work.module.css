@@ -1,0 +1,44 @@
+@value variables: '../utils/variables.module.css';
+@value gutterDefault from variables;
+
+.piece {
+  overflow: hidden;
+  padding-left: gutterDefault;
+  padding-right: gutterDefault;
+}
+
+.pieceClient,
+.pieceDescription,
+.pieceImageContainer,
+.pieceLinks,
+.pieceTitle {
+
+}
+
+.pieceClient {
+  margin-bottom: 0;
+}
+
+.pieceImage {
+  left: -16px;
+  max-width: calc(100% + 32px);
+  position: relative;
+}
+
+.pieceLinks {
+  composes: listUnstyle from '../utils/mixins.module.css';
+}
+
+.pieceLinks li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.pieceLinks li:not(:last-of-type):after {
+  content: '•';
+  padding: 0 1ch;
+}
+
+.pieceTitle {
+  margin-bottom: 0;
+}

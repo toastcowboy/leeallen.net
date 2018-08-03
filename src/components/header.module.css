@@ -1,15 +1,16 @@
 @value variables: '../utils/variables.module.css';
 @value colorLightGray from variables;
+@value zIndexHeader from variables;
 
 .header {
+  composes: gridStandard from '../utils/mixins.module.css';
   background-color: colorLightGray;
-  column-gap: 16px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   margin-bottom: 20px;
-  padding: 16px;
+  padding-bottom: 16px;
+  padding-top: 16px;
   position: sticky;
   top: 0;
+  z-index: zIndexHeader;
 }
 
 .nav {
@@ -20,11 +21,10 @@
 .navItem {
   display: inline-block;
   margin-bottom: 0;
-  padding-right: 12%;
 }
 
-.navItem:last-of-type {
-  padding-right: 0;
+.navItem:not(:last-of-type) {
+  padding-right: 12%;
 }
 
 .navLink {
@@ -49,7 +49,5 @@
 }
 
 .navList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  composes: listUnstyle from '../utils/mixins.module.css';
 }
