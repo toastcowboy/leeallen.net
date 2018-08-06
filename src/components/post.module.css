@@ -1,0 +1,18 @@
+@value variables: '../utils/variables.module.css';
+@value gutterDefault from variables;
+
+.post {
+  overflow: hidden;
+  padding-left: gutterDefault;
+  padding-right: gutterDefault;
+}
+
+.postImage {
+  left: -16px;
+  max-width: calc(100% + 32px);
+  position: relative;
+}
+
+.postTitle {
+  margin-bottom: 0;
+}
