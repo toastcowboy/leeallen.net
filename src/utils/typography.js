@@ -33,6 +33,9 @@ export default new Typography({
   overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
     'a': { color: options.bodyColor },
     'a:hover': { textDecoration: 'none' },
+    '.typography-align-left': { textAlign: 'left' },
+    '.typography-align-center': { textAlign: 'center' },
+    '.typography-align-right': { textAlign: 'right' },
     '.typography-line-break-double': { marginBottom: rhythm(2) },
     '.typography-line-break-full': { marginBottom: rhythm(1) },
     '.typography-line-break-half': { marginBottom: rhythm(0.5) },

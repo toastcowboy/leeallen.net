@@ -1,0 +1,32 @@
+.container {
+  column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.copy {
+  grid-column: 1/5;
+}
+
+.elsewhere {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  grid-column: 1/5;
+}
+
+.elsewhereLink {
+  padding: 8px;
+}
+
+.elsewhereLogo {
+  height: 32px;
+  margin-bottom: 0;
+}
+
+.headshot {
+  border-radius: 100%;
+  grid-column: 2/4;
+}
