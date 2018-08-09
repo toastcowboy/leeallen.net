@@ -45,7 +45,17 @@
 
 .navLogo {
   grid-column: 1 / 1;
+}
+
+.navLogo img {
+  display: block;
   margin-bottom: 0;
+}
+
+.navLogoHome {
+  grid-column: 1 / 5;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navList {

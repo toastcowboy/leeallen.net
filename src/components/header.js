@@ -9,9 +9,7 @@ const NavItem = props => {
 
   linkClassNames.push(styles.navLink);
 
-  if (props.href === props.pathname) {
-    linkClassNames.push(styles.navLinkActive);
-  }
+  if (props.href === props.pathname) linkClassNames.push(styles.navLinkActive);
 
   return (
     <li className={[styles.navItem, 'typography-semi-bold', 'typography-small'].join(' ')}>
@@ -35,20 +33,31 @@ export default props => {
       label: 'Writing'
     },
   ];
+  const navLogoClassNames = [styles.navLogo];
+
+  if (props.pathname === '/') navLogoClassNames.push(styles.navLogoHome);
 
   return (
     <header className={styles.header}>
-      <img className={styles.navLogo} src={logo} width="32" height="32" alt="Logo"/>
-      <nav className={styles.nav}>
-        <ol className={styles.navList}>
-          {navItems.map((navItem, index) =>
-            <NavItem
-              href={navItem.href}
-              key={index}
-              label={navItem.label}
-              pathname={props.pathname}/>)}
-        </ol>
-      </nav>
+      <Link className={navLogoClassNames.join(' ')} to="/">
+        <img
+          src={logo}
+          width={32}
+          height={32}
+          alt="Logo"/>
+      </Link>
+      {props.pathname !== '/' ? (
+        <nav className={styles.nav}>
+          <ol className={styles.navList}>
+            {navItems.map((navItem, index) =>
+              <NavItem
+                href={navItem.href}
+                key={index}
+                label={navItem.label}
+                pathname={props.pathname}/>)}
+          </ol>
+        </nav>
+      ) : null}
     </header>
   );
 };

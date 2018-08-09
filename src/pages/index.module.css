@@ -8,6 +8,7 @@
 
 .copy {
   grid-column: 1/5;
+  max-width: 45ch;
 }
 
 .elsewhere {
