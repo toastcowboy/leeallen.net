@@ -13,13 +13,20 @@ export default props => (
       src={props.image.src}
       width={1370}
       alt={props.image.altText}/>
-    <Shiitake
-      className="typography-line-break-none"
-      lines={3}
-      tagName="p"
-      throttleRate={200}>
-      {props.excerpt}
-    </Shiitake>
-    <p className="typography-small"><a href={props.link}>Read more</a></p>
+    {props.excerpt ? (
+      <Shiitake
+        className="typography-line-break-none"
+        lines={3}
+        tagName="p"
+        throttleRate={200}>
+        {props.excerpt}
+      </Shiitake>
+    ) : null}
+    {props.body ? (
+      props.body.map((body, index) => <p key={index}>{body}</p> )
+    ) : null}
+    {props.excerpt ? (
+      <p className="typography-small"><a href={props.link}>Read more</a></p>
+    ) : null}
   </div>
 );
