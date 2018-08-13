@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce';
 import React, { Component } from 'react';
 
 import Footer from '../components/footer';
@@ -14,7 +15,7 @@ export default class extends Component {
     this.setContentRef = element => { this.content = element; };
 
     // Bind event handlers
-    this.handleResize = this.handleResize.bind(this);
+    this.handleResize = debounce(this.handleResize.bind(this), 200);
 
     /**
      * Set the minHeight dynamically to workaround mobile sizing issues and keep the footer pinned
@@ -32,7 +33,7 @@ export default class extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('resize', this.handleResize.cancel);
   }
 
   handleResize(event) {

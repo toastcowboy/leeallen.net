@@ -23,6 +23,7 @@
     "gatsby-plugin-robots-txt": "^1.1.0",
     "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-plugin-typography": "^1.7.19",
+    "lodash.debounce": "^4.0.8",
     "shiitake": "^2.2.4"
   }
 }
