@@ -13,21 +13,25 @@ const elsewhereLinks = [
   {
     altText: 'GitHub logo',
     href: 'https://github.com/leeericallen',
+    key: 1,
     logo: logoGitHub,
   },
   {
     altText: 'Instagram logo',
     href: 'https://instagram.com/toastcowboy',
+    key: 2,
     logo: logoInstagram,
   },
   {
     altText: 'LinkedIn logo',
     href: 'https://linkedin.com/in/leeericallen',
+    key: 3,
     logo: logoLinkedIn,
   },
   {
     altText: 'Twitter logo',
     href: 'https://twitter.com/leeericallen',
+    key: 4,
     logo: logoTwitter,
   },
 ];
@@ -45,13 +49,7 @@ export default () => (
       I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
     </h1>
     <div className={styles.elsewhere}>
-      {elsewhereLinks.map((link, index) => (
-        <ElsewhereLink
-          altText={link.altText}
-          href={link.href}
-          key={index}
-          logo={link.logo}/>
-      ))}
+      {elsewhereLinks.map(link => <ElsewhereLink {...link}/>)}
     </div>
   </div>
 );
