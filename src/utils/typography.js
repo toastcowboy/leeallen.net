@@ -24,7 +24,7 @@ export default new Typography({
   headerFontFamily: fontStack,
   bodyFontFamily: fontStack,
   headerColor: 'inherit',
-  bodyColor: 'hsl(0, 0%, 0%, 0.8)',
+  bodyColor: 'hsla(0, 0%, 0%, 0.8)',
   headerWeight: 600,
   bodyWeight: 400,
   boldWeight: 600,
