@@ -7,6 +7,10 @@
   align-items: center;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  /*
+    This is the fallback value. The exact value is set in layouts/index.js to workaround mobile
+    sizing issues.
+  */
   min-height: 100vh;
 }
 
