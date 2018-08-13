@@ -22,15 +22,18 @@ export default props => {
   const navItems = [
     {
       href: '/',
-      label: 'Home'
+      key: 1,
+      label: 'Home',
     },
     {
       href: '/work',
-      label: 'Work'
+      key: 2,
+      label: 'Work',
     },
     {
       href: '/word',
-      label: 'Writing'
+      key: 3,
+      label: 'Writing',
     },
   ];
   const navLogoClassNames = [styles.navLogo];
@@ -49,12 +52,7 @@ export default props => {
       {props.pathname !== '/' ? (
         <nav className={styles.nav}>
           <ol className={styles.navList}>
-            {navItems.map((navItem, index) =>
-              <NavItem
-                href={navItem.href}
-                key={index}
-                label={navItem.label}
-                pathname={props.pathname}/>)}
+            {navItems.map((navItem) => <NavItem {...navItem} pathname={props.pathname}/>)}
           </ol>
         </nav>
       ) : null}
