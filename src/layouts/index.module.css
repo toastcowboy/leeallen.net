@@ -4,7 +4,6 @@
 }
 
 .content {
-  align-items: center;
   display: grid;
   grid-template-rows: auto 1fr auto;
   /*
@@ -12,6 +11,10 @@
     sizing issues.
   */
   min-height: 100vh;
+}
+
+.contentHome {
+  align-items: center;
 }
 
 @media all and (min-width: 70ch) {

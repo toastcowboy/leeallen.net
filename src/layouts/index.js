@@ -41,10 +41,17 @@ export default class extends Component {
   }
 
   render() {
+    const contentClassNames = [];
+
+    contentClassNames.push(styles.content);
+
+    // Apply home-specific styles if on homepage
+    if (this.props.location.pathname === '/') contentClassNames.push(styles.contentHome);
+
     return (
       <div className={styles.container}>
         <div/>
-        <div className={styles.content} ref={this.setContentRef}>
+        <div className={contentClassNames.join(' ')} ref={this.setContentRef}>
           <Header pathname={this.props.location.pathname}/>
           <main>{this.props.children()}</main>
           <Footer/>
