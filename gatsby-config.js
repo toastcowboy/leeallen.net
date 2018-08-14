@@ -11,6 +11,9 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-react-helmet',
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'http://leeallen.net',
@@ -29,7 +32,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-sitemap'
+      resolve: 'gatsby-plugin-sitemap',
     },
     {
       resolve: 'gatsby-plugin-typography',

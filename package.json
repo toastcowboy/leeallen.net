@@ -20,10 +20,12 @@
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-robots-txt": "^1.1.0",
     "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-plugin-typography": "^1.7.19",
     "lodash.debounce": "^4.0.8",
+    "react-helmet": "^5.2.0",
     "shiitake": "^2.2.4"
   }
 }
