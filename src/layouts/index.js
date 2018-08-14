@@ -72,14 +72,10 @@ export default class extends Component {
         sizes: '192x192',
       },
     ];
-    const metaInfo = {
-      description: 'The personal site of Lee Allen',
-      title: 'Lee Allen — Digital product leader',
-      url: 'http://leeallen.net',
-    };
+    const metaInfo = this.props.data.site.siteMetadata;
     const metaOpenGraph = [
       {
-        content: metaInfo.url,
+        content: metaInfo.siteUrl,
         property: 'og:url',
       },
       {
@@ -121,7 +117,7 @@ export default class extends Component {
         name: 'twitter:creator',
       },
       {
-        content: metaInfo.url,
+        content: metaInfo.siteUrl,
         name: 'twitter:url',
       },
       {
@@ -165,3 +161,15 @@ export default class extends Component {
     );
   }
 }
+
+export const query = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        description
+        siteUrl
+        title
+      }
+    }
+  }
+`;

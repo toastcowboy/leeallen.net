@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
+    description: 'The personal site of Lee Allen',
     siteUrl: 'http://leeallen.net',
+    title: 'Lee Allen — Digital product leader',
   },
   plugins: [
     {
