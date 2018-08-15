@@ -11,8 +11,12 @@ const Piece = props => (
       alt={props.image.altText}/>
     <h2 className={[styles.pieceTitle, 'typography-h1'].join(' ')}>{props.title}</h2>
     {props.links ? (
-      <ul className={styles.pieceLinks}>{props.links.map((link, index) =>
-        <li className="typography-small" key={index}><a href={link.href}>{link.text}</a></li>)}
+      <ul className={styles.pieceLinks}>
+        {props.links.map((link, index) =>
+          <li className="typography-small" key={index}>
+            <a href={link.href}>{link.text}</a>
+          </li>
+        )}
       </ul>
     ) : null}
     {props.client ? (
@@ -22,21 +26,17 @@ const Piece = props => (
   </div>
 );
 
-export default ({ data }) => {
-  return (
-    <div>
-      {data.allMarkdownRemark.edges.map((piece, index) => {
-        const pieceData = piece.node;
-
-        return (
-          <Piece key={index} {...pieceData.frontmatter}>
-            <div dangerouslySetInnerHTML={{ __html: pieceData.html }} />
-          </Piece>
-        )
-      })}
-    </div>
-  );
-};
+export default ({ data }) => (
+  <div>
+    {data.allMarkdownRemark.edges.map(({node}, index) => {
+      return (
+        <Piece key={index} {...node.frontmatter}>
+          <div dangerouslySetInnerHTML={{ __html: node.html }} />
+        </Piece>
+      )
+    })}
+  </div>
+);
 
 export const query = graphql`
   query WorkQuery {
