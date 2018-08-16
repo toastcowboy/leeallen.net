@@ -2,7 +2,6 @@
 @value gutterDefault from variables;
 
 .piece {
-  overflow: hidden;
   padding-left: gutterDefault;
   padding-right: gutterDefault;
 }
@@ -13,9 +12,12 @@
 
 .pieceImage,
 .gatsby-resp-image-link {
-  left: -16px;
-  max-width: calc(100% + 32px);
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
   position: relative;
+  right: 50%;
 }
 
 .pieceLinks {
