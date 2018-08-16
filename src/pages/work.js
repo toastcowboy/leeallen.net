@@ -41,6 +41,7 @@ export default ({ data }) => (
 export const query = graphql`
   query WorkQuery {
     allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "Work Piece" } } }
       sort: { fields: [frontmatter___date], order: DESC}
     ) {
       edges {
