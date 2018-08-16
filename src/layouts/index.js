@@ -149,13 +149,11 @@ export default class extends Component {
           {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
         </Helmet>
         <div className={styles.container}>
-          <div/>
           <div className={contentClassNames.join(' ')} ref={this.setContentRef}>
             <Header pathname={this.props.location.pathname}/>
             <main>{this.props.children()}</main>
             <Footer/>
           </div>
-          <div/>
         </div>
       </div>
     );
