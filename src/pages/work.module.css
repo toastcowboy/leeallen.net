@@ -11,11 +11,11 @@
   margin-bottom: 0;
 }
 
-.pieceImage,
-.gatsby-resp-image-link {
+.pieceImage {
   left: -16px;
-  max-width: calc(100% + 32px);
+  margin-bottom: 24px;
   position: relative;
+  width: calc(100% + 32px);
 }
 
 .pieceLinks {

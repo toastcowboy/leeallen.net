@@ -33,12 +33,8 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-sharp',
-    },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-    },
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -68,5 +64,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-sharp`,
   ],
 };

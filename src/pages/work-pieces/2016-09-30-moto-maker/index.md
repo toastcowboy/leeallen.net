@@ -3,7 +3,7 @@ client: "Motorola Mobility"
 date: "2016-09-30"
 image:
   altText: "Screenshot"
-  src: "https://source.unsplash.com/random/1370x771"
+  name: "moto-maker-screenshot"
 links:
 - href: "#"
   text: "Archived site"

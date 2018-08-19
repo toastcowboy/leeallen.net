@@ -3,7 +3,7 @@ client: "PogoTec, Inc."
 date: "2018-06-30"
 image:
   altText: "Screenshot"
-  src: "https://source.unsplash.com/random/1370x771"
+  name: "pogotec-screenshot"
 links:
 - href: "http://pogotec.com"
   text: "Live site"

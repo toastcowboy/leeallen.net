@@ -1,14 +1,11 @@
+import Img from 'gatsby-image';
 import React from 'react';
 
 import styles from './work.module.css';
 
 const Piece = props => (
   <div className={styles.piece}>
-    <img
-      className={styles.pieceImage}
-      src={props.image.src}
-      width={1370}
-      alt={props.image.altText}/>
+    <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
     <h2 className={[styles.pieceTitle, 'typography-h1'].join(' ')}>{props.title}</h2>
     {props.links ? (
       <ul className={styles.pieceLinks}>
@@ -26,32 +23,57 @@ const Piece = props => (
   </div>
 );
 
-export default ({ data }) => (
-  <div>
-    {data.allMarkdownRemark.edges.map(({node}, index) => {
-      return (
-        <Piece key={index} {...node.frontmatter}>
-          <div dangerouslySetInnerHTML={{ __html: node.html }} />
-        </Piece>
-      )
-    })}
-  </div>
-);
+export default ({ data }) => {
+  return (
+    <div>
+      {data.allMarkdownRemark.edges.map(({node}, index) => {
+        // Find the image node that has the same file name
+        const imageNode = data.allFile.edges.filter(edge =>
+          node.frontmatter.image.name === edge.node.name);
+
+        return (
+          <Piece key={index} sizes={imageNode[0].node.childImageSharp.sizes} {...node.frontmatter}>
+            <div dangerouslySetInnerHTML={{ __html: node.html }} />
+          </Piece>
+        )
+      })}
+    </div>
+  );
+};
 
 export const query = graphql`
   query WorkQuery {
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "Work Piece" } } }
-      sort: { fields: [frontmatter___date], order: DESC}
-    ) {
+    allFile(filter: {id: {regex: "/work-pieces/"}, extension: {regex: "/png/"}}) {
       edges {
         node {
-          html
+          absolutePath
+          childImageSharp {
+            sizes(maxWidth: 685) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+            }
+          }
+          name
+        }
+      }
+    }
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Work Piece"}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+      edges {
+        node {
+          fileAbsolutePath
           frontmatter {
             client
             image {
               altText
-              src
+              name
             }
             links {
               href
@@ -59,6 +81,7 @@ export const query = graphql`
             }
             title
           }
+          html
         }
       }
     }
