@@ -1,10 +1,14 @@
 @value variables: '../utils/variables.module.css';
+@value colorLightGray from variables;
 @value gutterDefault from variables;
 
 .piece {
-  overflow: hidden;
   padding-left: gutterDefault;
   padding-right: gutterDefault;
+}
+
+.piece:not(:last-of-type) {
+  margin-bottom: 72px;
 }
 
 .pieceClient {
@@ -16,6 +20,24 @@
   margin-bottom: 24px;
   position: relative;
   width: calc(100% + 32px);
+}
+
+@media all and (min-width: 717px) {
+  .pieceImage {
+    border: gutterDefault solid colorLightGray;
+    left: auto;
+    margin-left: calc(-100vw / 2 + 685px / 2);
+    margin-right: calc(-100vw / 2 + 685px / 2);
+    width: auto;
+  }
+}
+
+@media all and (min-width: 1402px) {
+  .pieceImage {
+    margin-left: calc(-1402px / 2 + 685px / 2);
+    margin-right: calc(-1402px / 2 + 685px / 2);
+    width: 1370px;
+  }
 }
 
 .pieceLinks {
