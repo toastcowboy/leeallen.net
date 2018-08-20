@@ -2,8 +2,24 @@
 @value colorLightGray from variables;
 
 .footer {
-  background-color: colorLightGray;
   line-height: 32px;
-  margin-top: 20px;
   padding: 0 16px;
+}
+
+.footerWrapper {
+  background-color: colorLightGray;
+  margin-top: 20px;
+}
+
+@media all and (min-width: 685px) {
+  .footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 685px;
+  }
+
+  .footerWrapper {
+    margin-left: calc(-100vw / 2 + 685px / 2);
+    margin-right: calc(-100vw / 2 + 685px / 2);
+  }
 }

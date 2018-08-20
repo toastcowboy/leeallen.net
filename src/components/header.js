@@ -22,17 +22,14 @@ export default props => {
   const navItems = [
     {
       href: '/',
-      key: 1,
       label: 'Home',
     },
     {
       href: '/work',
-      key: 2,
       label: 'Work',
     },
     {
       href: '/word',
-      key: 3,
       label: 'Writing',
     },
   ];
@@ -41,21 +38,24 @@ export default props => {
   if (props.pathname === '/') navLogoClassNames.push(styles.navLogoHome);
 
   return (
-    <header className={styles.header}>
-      <Link className={navLogoClassNames.join(' ')} to="/">
-        <img
-          src={logo}
-          width={32}
-          height={32}
-          alt="Logo"/>
-      </Link>
-      {props.pathname !== '/' ? (
-        <nav className={styles.nav}>
-          <ol className={styles.navList}>
-            {navItems.map((navItem) => <NavItem {...navItem} pathname={props.pathname}/>)}
-          </ol>
-        </nav>
-      ) : null}
+    <header className={styles.headerWrapper}>
+      <div className={styles.header}>
+        <Link className={navLogoClassNames.join(' ')} to="/">
+          <img
+            src={logo}
+            width={32}
+            height={32}
+            alt="Logo"/>
+        </Link>
+        {props.pathname !== '/' ? (
+          <nav className={styles.nav}>
+            <ol className={styles.navList}>
+              {navItems.map((navItem, index) =>
+                <NavItem key={index} {...navItem} pathname={props.pathname}/>)}
+            </ol>
+          </nav>
+        ) : null}
+      </div>
     </header>
   );
 };
