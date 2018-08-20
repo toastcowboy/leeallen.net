@@ -30,9 +30,10 @@ export default ({ data }) => {
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(edge =>
           node.frontmatter.image.name === edge.node.name);
+        const sizes = imageNode[0].node.childImageSharp.sizes;
 
         return (
-          <Piece key={index} sizes={imageNode[0].node.childImageSharp.sizes} {...node.frontmatter}>
+          <Piece key={index} sizes={sizes} {...node.frontmatter}>
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </Piece>
         )
@@ -46,26 +47,20 @@ export const query = graphql`
     allFile(filter: {id: {regex: "/work-pieces/"}, extension: {regex: "/png/"}}) {
       edges {
         node {
-          absolutePath
           childImageSharp {
-            sizes(maxWidth: 685) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
+            # Comment
+            sizes(maxWidth: 1370, quality: 80) {
+              ...GatsbyImageSharpSizes
             }
           }
           name
         }
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Work Piece"}}}, sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(
+      filter: {frontmatter: {type: {eq: "Work Piece"}}},
+      sort: {fields: [frontmatter___date], order: DESC}
+    ) {
       edges {
         node {
           fileAbsolutePath

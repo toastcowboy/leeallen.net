@@ -18,8 +18,9 @@
 
 @media all and (min-width: 70ch) {
   /*
-    If you update the width of this container, you must also update the maxWidth option for
-    gatsby-remark-images in gatsby-config.js
+    If you update the width of this container, you must also update the following:
+    - maxWidth option for gatsby-remark-images in gatsby-config.js
+    - maxWidth parameter for sizes in work.js WorkQuery
   */
   .container {
     margin-left: auto;
