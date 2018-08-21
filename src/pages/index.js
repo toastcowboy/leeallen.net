@@ -38,40 +38,27 @@ const ElsewhereLink = props => (
   </a>
 );
 
-export default ({ data }) => {
-  console.dir(data);
-
-  return (
-    <div className={styles.container}>
-      <Img
-        alt={`Lee’s headshot`}
-        outerWrapperClassName={styles.headshot}
-        sizes={data.file.childImageSharp.sizes}/>
-      <h1 className={`${styles.copy} typography-align-center`}>
-        I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
-      </h1>
-      <div className={styles.elsewhere}>
-        {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
-      </div>
+export default ({ data }) => (
+  <div className={styles.container}>
+    <Img
+      alt={`Lee’s headshot`}
+      outerWrapperClassName={styles.headshot}
+      sizes={data.file.childImageSharp.sizes}/>
+    <h1 className={`${styles.copy} typography-align-center`}>
+      I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
+    </h1>
+    <div className={styles.elsewhere}>
+      {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
     </div>
-  )
-};
+  </div>
+);
 
 export const query = graphql`
   query HomeQuery {
     file(name: {eq: "lee-allen-headshot"}) {
       childImageSharp {
-        sizes(maxWidth: 1370, quality: 80) {
-          base64
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-          originalImg
-          originalName
+        sizes(maxWidth: 638, quality: 80) {
+          ...GatsbyImageSharpSizes
         }
       }
     }
