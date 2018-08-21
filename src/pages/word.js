@@ -26,3 +26,37 @@ export default () => (
       title="Yet another terrible title that goes on"/>
   </div>
 );
+
+export const query = graphql`
+  query WorkQuery {
+    allFile(filter: {id: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
+      edges {
+        node {
+          childImageSharp {
+            sizes(maxWidth: 1370, quality: 80) {
+              sizes
+            }
+          }
+          name
+        }
+      }
+    }
+    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Word Post"}}}, sort: {fields: [frontmatter___datetime], order: DESC}) {
+      edges {
+        node {
+          excerpt
+          fileAbsolutePath
+          frontmatter {
+            datetime
+            image {
+              altText
+              name
+            }
+            title
+          }
+          html
+        }
+      }
+    }
+  }
+`;
