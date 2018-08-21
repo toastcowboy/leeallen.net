@@ -28,6 +28,10 @@
 }
 
 .headshot {
-  border-radius: 100%;
   grid-column: 2/4;
+  margin-bottom: 24px;
+}
+
+.headshot img {
+  border-radius: 100%;
 }

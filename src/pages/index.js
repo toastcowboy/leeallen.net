@@ -1,7 +1,7 @@
+import Img from 'gatsby-image';
 import Link from 'gatsby-link';
 import React from 'react';
 
-import headshot from '../assets/images/lee-allen-headshot.png';
 import logoGitHub from '../assets/icons/logo-github.svg';
 import logoInstagram from '../assets/icons/logo-instagram.svg';
 import logoLinkedIn from '../assets/icons/logo-linkedin.svg';
@@ -13,25 +13,21 @@ const elsewhereLinks = [
   {
     altText: 'GitHub logo',
     href: 'https://github.com/leeericallen',
-    key: 1,
     logo: logoGitHub,
   },
   {
     altText: 'Instagram logo',
     href: 'https://instagram.com/toastcowboy',
-    key: 2,
     logo: logoInstagram,
   },
   {
     altText: 'LinkedIn logo',
     href: 'https://linkedin.com/in/leeericallen',
-    key: 3,
     logo: logoLinkedIn,
   },
   {
     altText: 'Twitter logo',
     href: 'https://twitter.com/leeericallen',
-    key: 4,
     logo: logoTwitter,
   },
 ];
@@ -42,14 +38,42 @@ const ElsewhereLink = props => (
   </a>
 );
 
-export default () => (
-  <div className={styles.container}>
-    <img className={styles.headshot} src={headshot} alt="Lee’s headshot"/>
-    <h1 className={[styles.copy, 'typography-align-center'].join(' ')}>
-      I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
-    </h1>
-    <div className={styles.elsewhere}>
-      {elsewhereLinks.map(link => <ElsewhereLink {...link}/>)}
+export default ({ data }) => {
+  console.dir(data);
+
+  return (
+    <div className={styles.container}>
+      <Img
+        alt={`Lee’s headshot`}
+        outerWrapperClassName={styles.headshot}
+        sizes={data.file.childImageSharp.sizes}/>
+      <h1 className={`${styles.copy} typography-align-center`}>
+        I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
+      </h1>
+      <div className={styles.elsewhere}>
+        {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
+      </div>
     </div>
-  </div>
-);
+  )
+};
+
+export const query = graphql`
+  query HomeQuery {
+    file(name: {eq: "lee-allen-headshot"}) {
+      childImageSharp {
+        sizes(maxWidth: 1370, quality: 80) {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          originalImg
+          originalName
+        }
+      }
+    }
+  }
+`;
