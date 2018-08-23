@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from './word.module.css';
-
 import Post from '../components/post';
 
 export default () => (
