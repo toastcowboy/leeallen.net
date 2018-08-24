@@ -16,9 +16,9 @@ export default ({ data }) => (
         <Post
           date={node.frontmatter.datetime}
           excerpt={node.excerpt}
-          image={{ altText: 'Post image', sizes: sizes }}
+          image={{ altText: node.frontmatter.image.altText, sizes: sizes }}
           key={index}
-          link="/post"
+          link={node.fields.slug}
           title={node.frontmatter.title}/>
       );
     })}
@@ -43,6 +43,9 @@ export const query = graphql`
       edges {
         node {
           excerpt
+          fields {
+            slug
+          }
           fileAbsolutePath
           frontmatter {
             datetime(formatString: "MMM. Do, YYYY")

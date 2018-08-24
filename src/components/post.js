@@ -37,12 +37,14 @@ export default props => {
           {props.excerpt}
         </Shiitake>
       ) : null}
-      {props.body ? (
-        props.body.map((body, index) => <p key={index}>{body}</p> )
+      {props.html ? (
+        <div dangerouslySetInnerHTML={{ __html: props.html }}/>
       ) : null}
       {props.excerpt ? (
         <p className="typography-small"><Link to={props.link}>Read more</Link></p>
-      ) : null}
+      ) : (
+        <p className="typography-small"><Link to={`/word`}>Back to Writing</Link></p>
+      )}
     </div>
   );
 };
