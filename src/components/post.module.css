@@ -7,10 +7,15 @@
   padding-right: gutterDefault;
 }
 
+.post:not(:last-of-type) {
+  margin-bottom: 36px;
+}
+
 .postImage {
   left: -16px;
-  max-width: calc(100% + 32px);
+  margin-bottom: 12px;
   position: relative;
+  width: calc(100% + 32px);
 }
 
 .postTitle {

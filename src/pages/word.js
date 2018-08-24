@@ -2,37 +2,37 @@ import React from 'react';
 
 import Post from '../components/post';
 
-export default () => (
+export default ({ data }) => (
   <div>
-    <Post
-      date="July 4th, 2018"
-      excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus."
-      image={{ altText: 'Post image', src: 'https://source.unsplash.com/random/1370x771' }}
-      link="/post"
-      title="Sweet blog post title that goes onto two lines"/>
-    <Post
-      date="June 23rd, 2018"
-      excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus."
-      image={{ altText: 'Post image', src: 'https://source.unsplash.com/random/1370x771' }}
-      link="/post"
-      title="This is another post title that just breaks"/>
-    <Post
-      date="May 4th, 2018"
-      excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in nunc tincidunt, dictum risus vitae, interdum augue. Sed mollis arcu feugiat, egestas purus quis, gravida tortor. Sed consequat felis sit amet ligula tempor dapibus id vel lacus."
-      image={{ altText: 'Post image', src: 'https://source.unsplash.com/random/1370x771' }}
-      link="/post"
-      title="Yet another terrible title that goes on"/>
+    {data.allMarkdownRemark.edges.map(({ node }, index) => {
+      const fapArray = node.fileAbsolutePath.split('/');
+      const name = fapArray.splice(fapArray.length - 2, 1)[0];
+
+      // Find the image node that has the same file name
+      const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
+      const sizes = imageNode[0].node.childImageSharp.sizes;
+
+      return (
+        <Post
+          date={node.frontmatter.datetime}
+          excerpt={node.excerpt}
+          image={{ altText: 'Post image', sizes: sizes }}
+          key={index}
+          link="/post"
+          title={node.frontmatter.title}/>
+      );
+    })}
   </div>
 );
 
 export const query = graphql`
-  query WorkQuery {
+  query WordQuery {
     allFile(filter: {id: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
             sizes(maxWidth: 1370, quality: 80) {
-              sizes
+              ...GatsbyImageSharpSizes
             }
           }
           name
@@ -45,7 +45,7 @@ export const query = graphql`
           excerpt
           fileAbsolutePath
           frontmatter {
-            datetime
+            datetime(formatString: "MMM. Do, YYYY")
             image {
               altText
               name
