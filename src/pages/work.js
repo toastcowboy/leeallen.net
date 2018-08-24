@@ -1,3 +1,4 @@
+import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import React from 'react';
 
@@ -24,8 +25,48 @@ const Piece = props => (
 );
 
 export default ({ data }) => {
+  const metaInfo = {
+    description: `A selection of my best work`,
+    siteUrl: `http://leeallen.net/work`,
+    title: `Lee Allen — Work`,
+  };
+  const metaOpenGraph = [
+    {
+      content: metaInfo.siteUrl,
+      property: 'og:url',
+    },
+    {
+      content: metaInfo.title,
+      property: 'og:title',
+    },
+    {
+      content: metaInfo.description,
+      property: 'og:description',
+    },
+  ];
+  const metaTwitter = [
+    {
+      content: metaInfo.siteUrl,
+      name: 'twitter:url',
+    },
+    {
+      content: metaInfo.title,
+      name: 'twitter:title',
+    },
+    {
+      content: metaInfo.description,
+      name: 'twitter:description',
+    },
+  ];
+
   return (
     <div>
+      <Helmet>
+        <title>{metaInfo.title}</title>
+        <meta name="description" content={metaInfo.description}/>
+        {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
+        {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+      </Helmet>
       {data.allMarkdownRemark.edges.map(({node}, index) => {
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(edge =>

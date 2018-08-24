@@ -1,3 +1,4 @@
+import Helmet from 'react-helmet';
 import React from 'react';
 
 import Post from '../components/post';
@@ -10,14 +11,66 @@ export default ({ data }) => {
   // Find the image node that has the same file name
   const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
   const sizes = imageNode[0].node.childImageSharp.sizes;
+  const src = imageNode[0].node.childImageSharp.sizes.src;
+
+  const metaInfo = {
+    description: post.excerpt,
+    image: `http://leeallen.net${src}`,
+    siteUrl: `http://leeallen.net${post.fields.slug}`,
+    title: post.frontmatter.title,
+  };
+  const metaOpenGraph = [
+    {
+      content: metaInfo.siteUrl,
+      property: 'og:url',
+    },
+    {
+      content: metaInfo.title,
+      property: 'og:title',
+    },
+    {
+      content: metaInfo.image,
+      property: 'og:image',
+    },
+    {
+      content: metaInfo.description,
+      property: 'og:description',
+    },
+  ];
+  const metaTwitter = [
+    {
+      content: metaInfo.siteUrl,
+      name: 'twitter:url',
+    },
+    {
+      content: metaInfo.title,
+      name: 'twitter:title',
+    },
+    {
+      content: metaInfo.description,
+      name: 'twitter:description',
+    },
+    {
+      content: metaInfo.image,
+      name: 'twitter:image',
+    },
+  ];
 
   return (
-    <Post
-      date={post.frontmatter.datetime}
-      html={post.html}
-      image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
-      link={post.fields.slug}
-      title={post.frontmatter.title}/>
+    <div>
+      <Helmet>
+        <title>{metaInfo.title}</title>
+        <meta name="description" content={metaInfo.description}/>
+        {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
+        {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+      </Helmet>
+      <Post
+        date={post.frontmatter.datetime}
+        html={post.html}
+        image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
+        link={post.fields.slug}
+        title={post.frontmatter.title}/>
+    </div>
   );
 };
 
@@ -36,6 +89,7 @@ export const query = graphql`
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      excerpt
       fields {
         slug
       }
