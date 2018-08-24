@@ -85,7 +85,7 @@ export const query = graphql`
     allMarkdownRemark(filter: {frontmatter: {type: {eq: "Word Post"}}}, sort: {fields: [frontmatter___datetime], order: DESC}) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 300)
           fields {
             slug
           }

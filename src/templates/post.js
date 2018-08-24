@@ -89,7 +89,7 @@ export const query = graphql`
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt
+      excerpt(pruneLength: 300)
       fields {
         slug
       }
