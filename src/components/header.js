@@ -9,11 +9,11 @@ const NavItem = props => {
 
   linkClassNames.push(styles.navLink);
 
-  if (props.href === props.pathname) linkClassNames.push(styles.navLinkActive);
+  if (props.pathname.match(props.pattern)) linkClassNames.push(styles.navLinkActive);
 
   return (
-    <li className={[styles.navItem, 'typography-semi-bold', 'typography-small'].join(' ')}>
-      <Link className={linkClassNames.join(' ')} to={props.href}>{props.label}</Link>
+    <li className={`${styles.navItem} typography-semi-bold typography-small`}>
+      <Link className={linkClassNames.join(` `)} to={props.href}>{props.label}</Link>
     </li>
   );
 };
@@ -21,33 +21,36 @@ const NavItem = props => {
 export default props => {
   const navItems = [
     {
-      href: '/',
-      label: 'Home',
+      href: `/`,
+      label: `Home`,
+      pattern: /^\/$/,
     },
     {
-      href: '/work',
-      label: 'Work',
+      href: `/work`,
+      label: `Work`,
+      pattern: /^\/work/,
     },
     {
-      href: '/word',
-      label: 'Writing',
+      href: `/word`,
+      label: `Writing`,
+      pattern: /^\/word/,
     },
   ];
   const navLogoClassNames = [styles.navLogo];
 
-  if (props.pathname === '/') navLogoClassNames.push(styles.navLogoHome);
+  if (props.pathname === `/`) navLogoClassNames.push(styles.navLogoHome);
 
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.header}>
-        <Link className={navLogoClassNames.join(' ')} to="/">
+        <Link className={navLogoClassNames.join(` `)} to="/">
           <img
             src={logo}
             width={32}
             height={32}
             alt="Logo"/>
         </Link>
-        {props.pathname !== '/' ? (
+        {props.pathname !== `/` ? (
           <nav className={styles.nav}>
             <ol className={styles.navList}>
               {navItems.map((navItem, index) =>
