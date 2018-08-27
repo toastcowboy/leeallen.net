@@ -43,12 +43,12 @@ export default props => {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.header}>
-        <Link className={navLogoClassNames.join(` `)} to="/">
+        <Link className={navLogoClassNames.join(` `)} to={`/`}>
           <img
             src={logo}
             width={32}
             height={32}
-            alt="Logo"/>
+            alt={`Logo`}/>
         </Link>
         {props.pathname !== `/` ? (
           <nav className={styles.nav}>
