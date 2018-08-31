@@ -12,29 +12,29 @@ export default ({ data }) => {
   const metaOpenGraph = [
     {
       content: metaInfo.siteUrl,
-      property: 'og:url',
+      property: `og:url`,
     },
     {
       content: metaInfo.title,
-      property: 'og:title',
+      property: `og:title`,
     },
     {
       content: metaInfo.description,
-      property: 'og:description',
+      property: `og:description`,
     },
   ];
   const metaTwitter = [
     {
       content: metaInfo.siteUrl,
-      name: 'twitter:url',
+      name: `twitter:url`,
     },
     {
       content: metaInfo.title,
-      name: 'twitter:title',
+      name: `twitter:title`,
     },
     {
       content: metaInfo.description,
-      name: 'twitter:description',
+      name: `twitter:description`,
     },
   ];
 
@@ -47,7 +47,7 @@ export default ({ data }) => {
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
       </Helmet>
       {data.allMarkdownRemark.edges.map(({ node }, index) => {
-        const fapArray = node.fileAbsolutePath.split('/');
+        const fapArray = node.fileAbsolutePath.split(`/`);
         const name = fapArray.splice(fapArray.length - 2, 1)[0];
 
         // Find the image node that has the same file name

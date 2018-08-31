@@ -11,23 +11,23 @@ import styles from './index.module.css';
 
 const elsewhereLinks = [
   {
-    altText: 'GitHub logo',
-    href: 'https://github.com/leeericallen',
+    altText: `GitHub logo`,
+    href: `https://github.com/leeericallen`,
     logo: logoGitHub,
   },
   {
-    altText: 'Instagram logo',
-    href: 'https://instagram.com/toastcowboy',
+    altText: `Instagram logo`,
+    href: `https://instagram.com/toastcowboy`,
     logo: logoInstagram,
   },
   {
-    altText: 'LinkedIn logo',
-    href: 'https://linkedin.com/in/leeericallen',
+    altText: `LinkedIn logo`,
+    href: `https://linkedin.com/in/leeericallen`,
     logo: logoLinkedIn,
   },
   {
-    altText: 'Twitter logo',
-    href: 'https://twitter.com/leeericallen',
+    altText: `Twitter logo`,
+    href: `https://twitter.com/leeericallen`,
     logo: logoTwitter,
   },
 ];
@@ -45,7 +45,7 @@ export default ({ data }) => (
       outerWrapperClassName={styles.headshot}
       sizes={data.file.childImageSharp.sizes}/>
     <h1 className={`${styles.copy} typography-align-center`}>
-      I’m Lee, a digital generalist living in Southern California. See my <Link to="/work">work</Link>, read my <Link to="/word">writing</Link>, download my <a href={resume}>resume</a>, or just <a href="mailto:lee@leeallen.net">say hi</a>.
+      I’m Lee, a digital generalist living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
     </h1>
     <div className={styles.elsewhere}>
       {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}

@@ -7,18 +7,18 @@ import styles from './work.module.css';
 const Piece = props => (
   <div className={styles.piece}>
     <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
-    <h2 className={[styles.pieceTitle, 'typography-h1'].join(' ')}>{props.title}</h2>
+    <h2 className={[styles.pieceTitle, `typography-h1`].join(` `)}>{props.title}</h2>
     {props.links ? (
       <ul className={styles.pieceLinks}>
         {props.links.map((link, index) =>
-          <li className="typography-small" key={index}>
+          <li className={`typography-small`} key={index}>
             <a href={link.href}>{link.text}</a>
           </li>
         )}
       </ul>
     ) : null}
     {props.client ? (
-      <p className={[styles.pieceClient, 'typography-small'].join(' ')}>{props.client}</p>
+      <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
     ) : null}
     {props.children}
   </div>
@@ -33,29 +33,29 @@ export default ({ data }) => {
   const metaOpenGraph = [
     {
       content: metaInfo.siteUrl,
-      property: 'og:url',
+      property: `og:url`,
     },
     {
       content: metaInfo.title,
-      property: 'og:title',
+      property: `og:title`,
     },
     {
       content: metaInfo.description,
-      property: 'og:description',
+      property: `og:description`,
     },
   ];
   const metaTwitter = [
     {
       content: metaInfo.siteUrl,
-      name: 'twitter:url',
+      name: `twitter:url`,
     },
     {
       content: metaInfo.title,
-      name: 'twitter:title',
+      name: `twitter:title`,
     },
     {
       content: metaInfo.description,
-      name: 'twitter:description',
+      name: `twitter:description`,
     },
   ];
 
@@ -63,7 +63,7 @@ export default ({ data }) => {
     <div>
       <Helmet>
         <title>{metaInfo.title}</title>
-        <meta name="description" content={metaInfo.description}/>
+        <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
       </Helmet>

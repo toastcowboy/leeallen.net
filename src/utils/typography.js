@@ -1,34 +1,34 @@
 import Typography from 'typography';
 
 const fontStack = [
-  'Raleway',
-  'Helvetica Neue',
-  'Helvetica',
-  'Arial',
-  'sans-serif',
+  `Raleway`,
+  `Helvetica Neue`,
+  `Helvetica`,
+  `Arial`,
+  `sans-serif`,
 ];
 
 export default new Typography({
-  baseFontSize: '16px',
+  baseFontSize: `16px`,
   baseLineHeight: 1.5,
   scaleRatio: 1.5,
   googleFonts: [
     {
-      name: 'Raleway',
+      name: `Raleway`,
       styles: [
-        '400',
-        '600',
+        `400`,
+        `600`,
       ],
     },
   ],
   headerFontFamily: fontStack,
   bodyFontFamily: fontStack,
-  headerColor: 'inherit',
-  bodyColor: 'hsla(0, 0%, 0%, 0.8)',
+  headerColor: `inherit`,
+  bodyColor: `hsla(0, 0%, 0%, 0.8)`,
   headerWeight: 600,
   bodyWeight: 400,
   boldWeight: 600,
-  blockMarginBottom: '24px',
+  blockMarginBottom: `24px`,
   includeNormalize: true,
   overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
     'a': { color: options.bodyColor },
@@ -48,6 +48,6 @@ export default new Typography({
     '.typography-h6': styles.h6,
     '.typography-regular': { fontWeight: options.bodyWeight },
     '.typography-semi-bold': { fontWeight: options.boldWeight },
-    '.typography-small': { ...adjustFontSizeTo('12px') },
+    '.typography-small': { ...adjustFontSizeTo(`12px`) },
   }),
 });

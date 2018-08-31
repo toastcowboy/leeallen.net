@@ -18,9 +18,9 @@ export default props => {
   };
 
   return (
-    <div className={[styles.post, 'typography-line-break-half'].join(' ')}>
-      <h2 className={[styles.postTitle, 'typography-h1'].join(' ')}>{props.title}</h2>
-      <p className="typography-line-break-half typography-small">
+    <div className={`${styles.post} typography-line-break-half`}>
+      <h2 className={`${styles.postTitle} typography-h1`}>{props.title}</h2>
+      <p className={`typography-line-break-half typography-small`}>
         <Link to={props.link}>{props.date}</Link>
       </p>
       {props.excerpt ? (
@@ -30,9 +30,9 @@ export default props => {
       )}
       {props.excerpt ? (
         <Shiitake
-          className="typography-line-break-none"
+          className={`typography-line-break-none`}
           lines={3}
-          tagName="p"
+          tagName={`p`}
           throttleRate={200}>
           {props.excerpt}
         </Shiitake>
@@ -41,9 +41,9 @@ export default props => {
         <div dangerouslySetInnerHTML={{ __html: props.html }}/>
       ) : null}
       {props.excerpt ? (
-        <p className="typography-small"><Link to={props.link}>Read more</Link></p>
+        <p className={`typography-small`}><Link to={props.link}>Read more</Link></p>
       ) : (
-        <p className="typography-small"><Link to={`/word`}>Back to Writing</Link></p>
+        <p className={`typography-small`}><Link to={`/word`}>Back to Writing</Link></p>
       )}
     </div>
   );
