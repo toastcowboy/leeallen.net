@@ -6,7 +6,11 @@ image:
   name: "myford-mobile-screenshot"
 links:
 - href: "https://www.myfordmobile.com"
-  text: "Live site"
+  text: "Web portal"
+- href: "https://itunes.apple.com/us/app/myford-mobile-plug-in-hybrid/id599142823?mt=8"
+  text: "App Store"
+- href: "https://play.google.com/store/apps/details?id=com.ford.mfm&hl=en"
+  text: "Google Play"
 title: "MyFord Mobile"
 type: "Work Piece"
 ---
