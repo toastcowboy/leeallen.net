@@ -3,7 +3,7 @@ client: "Justin Howard"
 date: "2016-01-25"
 image:
   altText: "Screenshot"
-  name: "nordic-thunder-screenshot"
+  name: "nt-screenshot"
 links:
 - href: "http://www.nordicthunder.com"
   text: "Live site"

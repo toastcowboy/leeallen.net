@@ -5,6 +5,8 @@ image:
   altText: "Screenshot"
   name: "ameren-mobile-screenshot"
 links:
+- href: "https://m.ameren.com"
+  text: "Mobile site"
 - href: "https://itunes.apple.com/us/app/ameren-mobile/id874437332?mt=8"
   text: "App Store"
 - href: "https://play.google.com/store/apps/details?id=com.ameren.mobile&hl=en_US"
