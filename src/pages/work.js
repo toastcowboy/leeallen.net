@@ -7,12 +7,12 @@ import styles from './work.module.css';
 const Piece = props => (
   <div className={styles.piece}>
     <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
-    <h2 className={[styles.pieceTitle, `typography-h1`].join(` `)}>{props.title}</h2>
+    <h2 className={`${styles.pieceTitle} typography-h1`}>{props.title}</h2>
     {props.links ? (
       <ul className={styles.pieceLinks}>
         {props.links.map((link, index) =>
           <li className={`typography-small`} key={index}>
-            <a href={link.href}>{link.text}</a>
+            <a href={link.href} rel={`noopener noreferrer`} target={`_blank`}>{link.text}</a>
           </li>
         )}
       </ul>
