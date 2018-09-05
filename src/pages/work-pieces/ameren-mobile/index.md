@@ -15,4 +15,4 @@ title: "Ameren Mobile"
 type: "Work Piece"
 ---
 
-Took over mid-project as front end manager on a hybrid mobile app (web, iOS, and Android) for a major regional utility that was weeks behind schedule. I restructured the team and codebase to deliver a solution with 95% code sharing between platforms.
+Ameren, a major regional utility, wanted an affordable mobile product for their customers that could be easily maintained by their in-house IT team. I led the front end team to deliver a hybrid mobile app (web, iOS, and Android) written in web technologies and trained the IT team members to own the product post-launch. The solution achieved 95% code sharing between platforms.
