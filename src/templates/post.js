@@ -17,7 +17,7 @@ export default ({ data }) => {
     description: post.excerpt,
     image: `http://leeallen.net${src}`,
     siteUrl: `http://leeallen.net${post.fields.slug}`,
-    title: post.frontmatter.title,
+    title: `Lee Allen — ${post.frontmatter.title}`,
   };
   const metaOpenGraph = [
     {
