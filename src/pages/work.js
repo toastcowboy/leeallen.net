@@ -12,7 +12,7 @@ const Piece = props => (
       <ul className={styles.pieceLinks}>
         {props.links.map((link, index) =>
           <li className={`typography-small`} key={index}>
-            <a href={link.href} rel={`noopener noreferrer`} target={`_blank`}>{link.text}</a>
+            <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
           </li>
         )}
       </ul>

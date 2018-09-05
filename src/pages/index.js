@@ -36,7 +36,7 @@ const ElsewhereLink = props => (
   <a
     className={styles.elsewhereLink}
     href={props.href}
-    rel={`noopener noreferrer`}
+    rel={`nofollow noopener noreferrer`}
     target={`_blank`}>
     <img className={styles.elsewhereLogo} src={props.logo} alt={props.altText}/>
   </a>
