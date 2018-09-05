@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /*
+    This is the fallback value. The exact value is set in layouts/index.js to workaround mobile
+    sizing issues.
+  */
+  min-height: 100vh;
+}
+
+.contentHome {
+  align-items: center;
+}
+
+@media all and (min-width: 70ch) {
+  /*
+    If you update the width of this container, you must also update the following:
+    - maxWidth option for gatsby-remark-images in gatsby-config.js
+    - maxWidth parameter for sizes in work.js WorkQuery
+  */
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 45ch;
+    max-width: 70ch;
+  }
+}
