@@ -1,3 +1,10 @@
+const excludePaths = [
+  `/sandbox`,
+  `/style-guide`,
+  `/version`,
+  `/work`
+];
+
 module.exports = {
   siteMetadata: {
     description: `The personal site of Lee Allen`,
@@ -24,18 +31,18 @@ module.exports = {
           {
             userAgent: `*`,
             allow: `/`,
-            disallow: [
-              `/sandbox/`,
-              `/style-guide`,
-              `/version/`,
-              `/work/`
-            ],
+            disallow: excludePaths,
           },
         ],
       },
     },
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: excludePaths,
+      },
+    },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
