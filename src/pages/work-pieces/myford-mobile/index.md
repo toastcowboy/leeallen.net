@@ -15,4 +15,4 @@ title: "MyFord Mobile"
 type: "Work Piece"
 ---
 
-Ford wanted to give their electric vehicle customers an easy way to remotely control vehicle functions, find charging stations, and estimate battery range for trips. In addition, they wanted this product to use a single codebase (for web, iOS app, and Android app) and allow business users to update it with Adobe Experience Manager. I led the front end team on this project to deliver a solution to coincide with the new model year EV car introductions.
+Ford wanted to give their electric vehicle customers an easy way to remotely control vehicle functions, find charging stations, and estimate battery range for trips. In addition, they wanted this product to use a single codebase (for web, iOS app, and Android app) and allow business users to update it with Adobe Experience Manager. I led the front end team on this project to deliver a solution to coincide with the new model year EV car introductions. [This video review](https://www.youtube.com/watch?v=6yR6VrpXbuw) demonstrates the shipped product.
