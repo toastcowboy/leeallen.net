@@ -6,7 +6,6 @@ import styles from './work.module.css';
 
 const Piece = props => (
   <div className={styles.piece}>
-    <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
     <h2 className={`${styles.pieceTitle} typography-h1`}>{props.title}</h2>
     {props.links ? (
       <ul className={styles.pieceLinks}>
@@ -20,6 +19,7 @@ const Piece = props => (
     {props.client ? (
       <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
     ) : null}
+    <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
     {props.children}
   </div>
 );
