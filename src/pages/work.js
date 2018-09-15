@@ -90,7 +90,7 @@ export const query = graphql`
         node {
           childImageSharp {
             # Comment
-            sizes(maxWidth: 1370, quality: 80) {
+            sizes(maxWidth: 1370, quality: 80, toFormat: JPG) {
               ...GatsbyImageSharpSizes
             }
           }

@@ -1,10 +1,14 @@
 import Typography from 'typography';
 
 const fontStack = [
-  `Raleway`,
+  `-apple-system`,
+  `BlinkMacSystemFont`,
+  `Segoe UI`,
+  `Roboto`,
+  `Oxygen-Sans`,
+  `Ubuntu`,
+  `Cantarell`,
   `Helvetica Neue`,
-  `Helvetica`,
-  `Arial`,
   `sans-serif`,
 ];
 
@@ -12,15 +16,6 @@ export default new Typography({
   baseFontSize: `16px`,
   baseLineHeight: 1.5,
   scaleRatio: 1.5,
-  googleFonts: [
-    {
-      name: `Raleway`,
-      styles: [
-        `400`,
-        `600`,
-      ],
-    },
-  ],
   headerFontFamily: fontStack,
   bodyFontFamily: fontStack,
   headerColor: `inherit`,
