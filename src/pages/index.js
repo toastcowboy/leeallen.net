@@ -61,7 +61,7 @@ export const query = graphql`
   query HomeQuery {
     file(name: {eq: "lee-allen-headshot"}) {
       childImageSharp {
-        sizes(maxWidth: 638, quality: 80) {
+        sizes(maxWidth: 638, quality: 80, toFormat: JPG) {
           ...GatsbyImageSharpSizes
         }
       }
