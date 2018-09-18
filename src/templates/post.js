@@ -69,7 +69,8 @@ export default ({ data }) => {
         html={post.html}
         image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
         link={post.fields.slug}
-        title={post.frontmatter.title}/>
+        title={post.frontmatter.title}
+        type={`page`}/>
     </div>
   );
 };
