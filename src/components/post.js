@@ -19,7 +19,11 @@ export default props => {
 
   return (
     <div className={`${styles.post} typography-line-break-half`}>
-      <h2 className={`${styles.postTitle} typography-h1`}>{props.title}</h2>
+      {props.type === `page` ? (
+        <h1 className={`${styles.postTitle}`}>{props.title}</h1>
+      ) : (
+        <h2 className={`${styles.postTitle} typography-h1`}>{props.title}</h2>
+      )}
       <p className={`typography-line-break-half typography-small`}>
         <Link to={props.link}>{props.date}</Link>
       </p>
