@@ -56,10 +56,6 @@
   text-decoration: underline;
 }
 
-.navLinkActive:hover:not(:active, :focus) {
-  text-decoration: none;
-}
-
 .navLogo {
   grid-column: 1 / 1;
 }
