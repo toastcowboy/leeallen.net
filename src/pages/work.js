@@ -6,7 +6,7 @@ import styles from './work.module.css';
 
 const Piece = props => (
   <div className={styles.piece}>
-    <h2 className={`${styles.pieceTitle} typography-h1`}>{props.title}</h2>
+    <h1 className={styles.pieceTitle}>{props.title}</h1>
     {props.links ? (
       <ul className={styles.pieceLinks}>
         {props.links.map((link, index) =>
