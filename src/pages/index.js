@@ -4,12 +4,23 @@ import React from 'react';
 
 import logoGitHub from '../assets/icons/logo-github.svg';
 import logoInstagram from '../assets/icons/logo-instagram.svg';
+import logoLastFm from '../assets/icons/logo-lastfm.svg';
 import logoLinkedIn from '../assets/icons/logo-linkedin.svg';
 import logoTwitter from '../assets/icons/logo-twitter.svg';
 import resume from '../downloads/lee-allen-resume.pdf';
 import styles from './index.module.css';
 
 const elsewhereLinks = [
+  {
+    altText: `LinkedIn logo`,
+    href: `https://linkedin.com/in/leeericallen`,
+    logo: logoLinkedIn,
+  },
+  {
+    altText: `Twitter logo`,
+    href: `https://twitter.com/leeericallen`,
+    logo: logoTwitter,
+  },
   {
     altText: `GitHub logo`,
     href: `https://github.com/leeericallen`,
@@ -21,14 +32,9 @@ const elsewhereLinks = [
     logo: logoInstagram,
   },
   {
-    altText: `LinkedIn logo`,
-    href: `https://linkedin.com/in/leeericallen`,
-    logo: logoLinkedIn,
-  },
-  {
-    altText: `Twitter logo`,
-    href: `https://twitter.com/leeericallen`,
-    logo: logoTwitter,
+    altText: `last.fm logo`,
+    href: `https://last.fm/user/toastcowboy`,
+    logo: logoLastFm,
   },
 ];
 
