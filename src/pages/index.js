@@ -4,6 +4,7 @@ import React from 'react';
 
 import logoGitHub from '../assets/icons/logo-github.svg';
 import logoInstagram from '../assets/icons/logo-instagram.svg';
+import logoLastFm from '../assets/icons/logo-lastfm.svg';
 import logoLinkedIn from '../assets/icons/logo-linkedin.svg';
 import logoTwitter from '../assets/icons/logo-twitter.svg';
 import resume from '../downloads/lee-allen-resume.pdf';
@@ -19,6 +20,11 @@ const elsewhereLinks = [
     altText: `Instagram logo`,
     href: `https://instagram.com/toastcowboy`,
     logo: logoInstagram,
+  },
+  {
+    altText: `last.fm logo`,
+    href: `https://last.fm/user/toastcowboy`,
+    logo: logoLastFm,
   },
   {
     altText: `LinkedIn logo`,
