@@ -12,6 +12,16 @@ import styles from './index.module.css';
 
 const elsewhereLinks = [
   {
+    altText: `LinkedIn logo`,
+    href: `https://linkedin.com/in/leeericallen`,
+    logo: logoLinkedIn,
+  },
+  {
+    altText: `Twitter logo`,
+    href: `https://twitter.com/leeericallen`,
+    logo: logoTwitter,
+  },
+  {
     altText: `GitHub logo`,
     href: `https://github.com/leeericallen`,
     logo: logoGitHub,
@@ -25,16 +35,6 @@ const elsewhereLinks = [
     altText: `last.fm logo`,
     href: `https://last.fm/user/toastcowboy`,
     logo: logoLastFm,
-  },
-  {
-    altText: `LinkedIn logo`,
-    href: `https://linkedin.com/in/leeericallen`,
-    logo: logoLinkedIn,
-  },
-  {
-    altText: `Twitter logo`,
-    href: `https://twitter.com/leeericallen`,
-    logo: logoTwitter,
   },
 ];
 
