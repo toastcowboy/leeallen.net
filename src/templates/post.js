@@ -1,9 +1,10 @@
 import Helmet from 'react-helmet';
+import Layout from '../components/layout';
 import React from 'react';
 
 import Post from '../components/post';
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const post = data.markdownRemark;
   const slugArray = post.fields.slug.split(`/`);
   const name = slugArray.splice(slugArray.length - 2, 1)[0];
@@ -57,7 +58,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name={`description`} content={metaInfo.description}/>
@@ -70,7 +71,7 @@ export default ({ data }) => {
         image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
         link={post.fields.slug}
         title={post.frontmatter.title}/>
-    </div>
+    </Layout>
   );
 };
 

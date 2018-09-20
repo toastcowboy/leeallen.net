@@ -1,9 +1,10 @@
+import Layout from '../components/layout';
 import Helmet from 'react-helmet';
 import React from 'react';
 
 import Post from '../components/post';
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const metaInfo = {
     description: `Assorted word droppings from Lee`,
     siteUrl: `http://leeallen.net/word`,
@@ -39,7 +40,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name="description" content={metaInfo.description}/>
@@ -64,7 +65,7 @@ export default ({ data }) => {
             title={node.frontmatter.title}/>
         );
       })}
-    </div>
+    </Layout>
   );
 };
 

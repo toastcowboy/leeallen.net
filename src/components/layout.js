@@ -12,7 +12,7 @@ import favicon62 from '../assets/icons/favicon-62.png';
 import favicon192 from '../assets/icons/favicon-192.png';
 import headshot from '../assets/images/lee-allen-headshot.png';
 
-import styles from './index.module.css';
+import styles from './layout.module.css';
 
 export default class extends Component {
   constructor(props) {
@@ -152,7 +152,7 @@ export default class extends Component {
         <div className={styles.container}>
           <div className={contentClassNames.join(` `)} ref={this.setContentRef}>
             <Header pathname={this.props.location.pathname}/>
-            <main>{this.props.children()}</main>
+            <main>{this.props.children}</main>
             <Footer/>
           </div>
         </div>

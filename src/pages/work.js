@@ -1,27 +1,30 @@
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
+import Layout from '../components/layout';
 import React from 'react';
 
 import styles from './work.module.css';
 
 const Piece = props => (
-  <div className={styles.piece}>
-    <h1 className={styles.pieceTitle}>{props.title}</h1>
-    {props.links ? (
-      <ul className={styles.pieceLinks}>
-        {props.links.map((link, index) =>
-          <li className={`typography-small`} key={index}>
-            <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
-          </li>
-        )}
-      </ul>
-    ) : null}
-    {props.client ? (
-      <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
-    ) : null}
-    <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
-    {props.children}
-  </div>
+  <Layout location={props.location}>
+    <div className={styles.piece}>
+      <h1 className={styles.pieceTitle}>{props.title}</h1>
+      {props.links ? (
+        <ul className={styles.pieceLinks}>
+          {props.links.map((link, index) =>
+            <li className={`typography-small`} key={index}>
+              <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
+            </li>
+          )}
+        </ul>
+      ) : null}
+      {props.client ? (
+        <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
+      ) : null}
+      <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
+      {props.children}
+    </div>
+  </Layout>
 );
 
 export default ({ data }) => {
