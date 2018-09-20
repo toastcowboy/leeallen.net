@@ -3,12 +3,12 @@ import gulp from 'gulp';
 import GulpSSH from 'gulp-ssh';
 import gzip from 'gulp-gzip';
 import runSequence from 'run-sequence';
-import { shellConfig, sshPath } from './sshConfig';
+import { sshConfig, sshPath } from './ssh-config';
 import tar from 'gulp-tar';
 
 const gulpSSH = new GulpSSH({
   ignoreErrors: false,
-  sshConfig: shellConfig,
+  sshConfig: sshConfig,
 });
 const paths = {
   build: `public`,
@@ -25,6 +25,7 @@ gulp.task(`deploy`, (done) => {
     `deploy:clean-remote`,
     `deploy:upload`,
     `deploy:extract`,
+    `deploy:clean`,
     done,
   );
 });
@@ -43,6 +44,7 @@ gulp.task(`deploy:compress`, () => {
     .pipe(gulp.dest(`.`));
 });
 
+// This task copies files from the source directory that Gatsby doesn’t include in its build.
 gulp.task(`deploy:copy`, () => {
   return gulp.src([
     `${paths.source}/.htaccess`,
@@ -58,7 +60,7 @@ gulp.task(`deploy:clean-remote`, () => {
     `rm -rf ./*`,
     `rm -rf ./.htaccess`,
   ], {filePath: `clean-remote-commands.log`})
-    .pipe(gulp.dest(`sshLogs`));
+    .pipe(gulp.dest(`ssh-logs`));
 });
 
 // This deployment helper task uploads the distribution tarball to the server directory.
@@ -72,5 +74,5 @@ gulp.task(`deploy:extract`, () => {
     `tar -xvf ./public.tar --overwrite`,
     `rm ./public.tar`
   ], {filePath: `extract-commands.log`})
-    .pipe(gulp.dest(`sshLogs`));
+    .pipe(gulp.dest(`ssh-logs`));
 });

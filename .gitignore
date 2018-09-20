@@ -149,5 +149,5 @@ jspm_packages
 design
 public
 public.tar.gz
-sshConfig.js
-sshLogs
+ssh-config.js
+ssh-logs
