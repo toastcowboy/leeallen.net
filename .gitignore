@@ -148,3 +148,6 @@ jspm_packages
 .cache
 design
 public
+build.tar.gz
+sshConfig.js
+sshLogs
