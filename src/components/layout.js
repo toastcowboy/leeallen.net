@@ -1,6 +1,7 @@
 import debounce from 'lodash.debounce';
 import Helmet from 'react-helmet';
 import React, { Component } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -72,67 +73,6 @@ export default class extends Component {
         sizes: `192x192`,
       },
     ];
-    const metaInfo = this.props.data.site.siteMetadata;
-    const metaOpenGraph = [
-      {
-        content: metaInfo.siteUrl,
-        property: `og:url`,
-      },
-      {
-        content: `website`,
-        property: `og:type`,
-      },
-      {
-        content: metaInfo.title,
-        property: `og:title`,
-      },
-      {
-        content: headshot,
-        property: `og:image`,
-      },
-      {
-        content: metaInfo.description,
-        property: `og:description`,
-      },
-      {
-        content: `leeallen.net`,
-        property: `og:site_name`,
-      },
-      {
-        content: `en_US`,
-        property: `og:locale`,
-      },
-      {
-        content: `Lee Allen`,
-        property: `article:author`,
-      },
-    ];
-    const metaTwitter = [
-      {
-        content: `summary`,
-        name: `twitter:card`,
-      },
-      {
-        content: `@leeericallen`,
-        name: `twitter:creator`,
-      },
-      {
-        content: metaInfo.siteUrl,
-        name: `twitter:url`,
-      },
-      {
-        content: metaInfo.title,
-        name: `twitter:title`,
-      },
-      {
-        content: metaInfo.description,
-        name: `twitter:description`,
-      },
-      {
-        content: headshot,
-        name: `twitter:image`,
-      },
-    ];
 
     contentClassNames.push(styles.content);
 
@@ -140,35 +80,100 @@ export default class extends Component {
     if (this.props.location.pathname === `/`) contentClassNames.push(styles.contentHome);
 
     return (
-      <div>
-        <Helmet>
-          <title>{metaInfo.title}</title>
-          <meta name={`description`} content={metaInfo.description}/>
-          {favicons.map((favicon, index) =>
-            <link key={index} rel={`icon`} {...favicon} type={`image/png`}/>)}
-          {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
-          {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
-        </Helmet>
-        <div className={styles.container}>
-          <div className={contentClassNames.join(` `)} ref={this.setContentRef}>
-            <Header pathname={this.props.location.pathname}/>
-            <main>{this.props.children}</main>
-            <Footer/>
-          </div>
-        </div>
-      </div>
+      <StaticQuery
+        query={graphql`
+          query IndexQuery {
+            site {
+              siteMetadata {
+                description
+                siteUrl
+                title
+              }
+            }
+          }
+        `}
+        render={data => {
+          const metaInfo = data.site.siteMetadata;
+          const metaOpenGraph = [
+            {
+              content: metaInfo.siteUrl,
+              property: `og:url`,
+            },
+            {
+              content: `website`,
+              property: `og:type`,
+            },
+            {
+              content: metaInfo.title,
+              property: `og:title`,
+            },
+            {
+              content: headshot,
+              property: `og:image`,
+            },
+            {
+              content: metaInfo.description,
+              property: `og:description`,
+            },
+            {
+              content: `leeallen.net`,
+              property: `og:site_name`,
+            },
+            {
+              content: `en_US`,
+              property: `og:locale`,
+            },
+            {
+              content: `Lee Allen`,
+              property: `article:author`,
+            },
+          ];
+          const metaTwitter = [
+            {
+              content: `summary`,
+              name: `twitter:card`,
+            },
+            {
+              content: `@leeericallen`,
+              name: `twitter:creator`,
+            },
+            {
+              content: metaInfo.siteUrl,
+              name: `twitter:url`,
+            },
+            {
+              content: metaInfo.title,
+              name: `twitter:title`,
+            },
+            {
+              content: metaInfo.description,
+              name: `twitter:description`,
+            },
+            {
+              content: headshot,
+              name: `twitter:image`,
+            },
+          ];
+
+          return (
+            <div>
+              <Helmet>
+                <title>{metaInfo.title}</title>
+                <meta name={`description`} content={metaInfo.description}/>
+                {favicons.map((favicon, index) =>
+                  <link key={index} rel={`icon`} {...favicon} type={`image/png`}/>)}
+                {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
+                {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+              </Helmet>
+              <div className={styles.container}>
+                <div className={contentClassNames.join(` `)} ref={this.setContentRef}>
+                  <Header pathname={this.props.location.pathname}/>
+                  <main>{this.props.children}</main>
+                  <Footer/>
+                </div>
+              </div>
+            </div>
+          )}}/>
     );
   }
 }
-
-export const query = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        description
-        siteUrl
-        title
-      }
-    }
-  }
-`;
