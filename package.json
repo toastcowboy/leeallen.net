@@ -42,6 +42,7 @@
     "gulp": "^3.9.1",
     "gulp-gzip": "^1.4.2",
     "gulp-ssh": "^0.7.0",
-    "gulp-tar": "^2.1.0"
+    "gulp-tar": "^2.1.0",
+    "run-sequence": "^2.2.1"
   }
 }

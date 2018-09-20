@@ -2,35 +2,32 @@ import del from 'del';
 import gulp from 'gulp';
 import GulpSSH from 'gulp-ssh';
 import gzip from 'gulp-gzip';
-// import runSequence from 'run-sequence';
+import runSequence from 'run-sequence';
 import { shellConfig, sshPath } from './sshConfig';
 import tar from 'gulp-tar';
 
+const gulpSSH = new GulpSSH({
+  ignoreErrors: false,
+  sshConfig: shellConfig,
+});
 const paths = {
   build: `public`,
   remote: sshPath,
   source: `src`,
 };
-// const shellConfig = {
-//   ignoreErrors: false,
-//   sshConfig: sshConfig,
-// };
-const shellInstance = new GulpSSH({
-  ignoreErrors: false,
-  sshConfig: shellConfig,
-});
 
 // This task will create a new distribution folder and deploy it to the server.
-// gulp.task('deploy', (done) => {
-//   return runSequence(
-//     'deploy:clean',
-//     'deploy:compress',
-//     'deploy:clean-remote',
-//     'deploy:upload',
-//     'deploy:extract',
-//     done,
-//   );
-// });
+gulp.task(`deploy`, (done) => {
+  return runSequence(
+    `deploy:clean`,
+    `deploy:copy`,
+    `deploy:compress`,
+    `deploy:clean-remote`,
+    `deploy:upload`,
+    `deploy:extract`,
+    done,
+  );
+});
 
 // This deployment helper task deletes the current distribution tarball, if one exists.
 gulp.task(`deploy:clean`, () => del(`public.tar.gz`));
@@ -46,9 +43,17 @@ gulp.task(`deploy:compress`, () => {
     .pipe(gulp.dest(`.`));
 });
 
+gulp.task(`deploy:copy`, () => {
+  return gulp.src([
+    `${paths.source}/.htaccess`,
+    `${paths.source}/favicon.ico`,
+  ])
+    .pipe(gulp.dest(paths.build));
+});
+
 // This deployment helper task deletes all existing files in the server directory.
 gulp.task(`deploy:clean-remote`, () => {
-  return shellInstance.shell([
+  return gulpSSH.shell([
     `cd ${paths.remote}`,
     `rm -rf ./*`,
     `rm -rf ./.htaccess`,
@@ -57,15 +62,15 @@ gulp.task(`deploy:clean-remote`, () => {
 });
 
 // This deployment helper task uploads the distribution tarball to the server directory.
-// gulp.task('deploy:upload', () => gulp.src('build.tar.gz').pipe(shellInstance.sftp('write', `${paths.remote}build.tar.gz`)));
+gulp.task(`deploy:upload`, () => gulp.src(`public.tar.gz`).pipe(gulpSSH.dest(paths.remote)));
 
 // This deployment helper task extracts the distribution tarball to the server directory and then deletes the tarball.
-// gulp.task('deploy:extract', () => {
-//   return shellInstance.shell([
-//     `cd ${paths.remote}`,
-//     'gunzip ./build.tar.gz',
-//     'tar -xvf ./build.tar --overwrite',
-//     'rm ./build.tar'
-//   ], {filePath: 'extract-commands.log'})
-//     .pipe(gulp.dest('sshLogs'));
-// });
+gulp.task(`deploy:extract`, () => {
+  return gulpSSH.shell([
+    `cd ${paths.remote}`,
+    `gunzip ./public.tar.gz`,
+    `tar -xvf ./public.tar --overwrite`,
+    `rm ./public.tar`
+  ], {filePath: `extract-commands.log`})
+    .pipe(gulp.dest(`sshLogs`));
+});
