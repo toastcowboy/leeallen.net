@@ -39,6 +39,9 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-gzip": "^1.4.2",
+    "gulp-ssh": "^0.7.0",
+    "gulp-tar": "^2.1.0"
   }
 }
