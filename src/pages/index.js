@@ -68,11 +68,11 @@ export default ({ data, location }) => (
 );
 
 export const query = graphql`
-  query HomeQuery {
+  {
     file(name: {eq: "lee-allen-headshot"}) {
       childImageSharp {
         fluid(maxWidth: 638, quality: 80, toFormat: JPG) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

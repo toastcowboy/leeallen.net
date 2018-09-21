@@ -77,13 +77,13 @@ export default ({ data, location }) => {
 };
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
+  query($slug: String!) {
     allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1370, quality: 80, toFormat: JPG) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1370, quality: 80, toFormat: JPG) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name

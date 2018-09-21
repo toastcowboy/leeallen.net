@@ -71,13 +71,13 @@ export default ({ data, location }) => {
 };
 
 export const query = graphql`
-  query WordQuery {
+  {
     allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1370, quality: 80) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1370, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name

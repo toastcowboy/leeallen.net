@@ -88,14 +88,14 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query WorkQuery {
+  {
     allFile(filter: {absolutePath: {regex: "/work-pieces/"}, extension: {regex: "/png/"}}) {
       edges {
         node {
           childImageSharp {
             # Comment
             fluid(maxWidth: 1370, quality: 80, toFormat: JPG) {
-              ...GatsbyImageSharpSizes
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name
