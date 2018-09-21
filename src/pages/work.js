@@ -1,5 +1,7 @@
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
+import Layout from '../components/layout';
 import React from 'react';
 
 import styles from './work.module.css';
@@ -19,12 +21,12 @@ const Piece = props => (
     {props.client ? (
       <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
     ) : null}
-    <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
+    <Img className={styles.pieceImage} fluid={props.fluid} alt={props.image.altText}/>
     {props.children}
   </div>
 );
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const metaInfo = {
     description: `A selection of my best work`,
     siteUrl: `http://leeallen.net/work`,
@@ -60,7 +62,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name={`description`} content={metaInfo.description}/>
@@ -71,27 +73,27 @@ export default ({ data }) => {
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(edge =>
           node.frontmatter.image.name === edge.node.name);
-        const sizes = imageNode[0].node.childImageSharp.sizes;
+        const fluid = imageNode[0].node.childImageSharp.fluid;
 
         return (
-          <Piece key={index} sizes={sizes} {...node.frontmatter}>
+          <Piece key={index} fluid={fluid} {...node.frontmatter}>
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </Piece>
         )
       })}
-    </div>
+    </Layout>
   );
 };
 
 export const query = graphql`
-  query WorkQuery {
-    allFile(filter: {id: {regex: "/work-pieces/"}, extension: {regex: "/png/"}}) {
+  {
+    allFile(filter: {absolutePath: {regex: "/work-pieces/"}, extension: {regex: "/png/"}}) {
       edges {
         node {
           childImageSharp {
             # Comment
-            sizes(maxWidth: 1370, quality: 80, toFormat: JPG) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1370, quality: 80, toFormat: JPG) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name

@@ -1,17 +1,19 @@
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import Layout from '../components/layout';
 import React from 'react';
 
 import Post from '../components/post';
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const post = data.markdownRemark;
   const slugArray = post.fields.slug.split(`/`);
   const name = slugArray.splice(slugArray.length - 2, 1)[0];
 
   // Find the image node that has the same file name
   const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
-  const sizes = imageNode[0].node.childImageSharp.sizes;
-  const src = imageNode[0].node.childImageSharp.sizes.src;
+  const fluid = imageNode[0].node.childImageSharp.fluid;
+  const src = imageNode[0].node.childImageSharp.fluid.src;
 
   const metaInfo = {
     description: post.excerpt,
@@ -57,7 +59,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name={`description`} content={metaInfo.description}/>
@@ -67,21 +69,21 @@ export default ({ data }) => {
       <Post
         date={post.frontmatter.datetime}
         html={post.html}
-        image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
+        image={{ altText: post.frontmatter.image.altText, fluid: fluid }}
         link={post.fields.slug}
         title={post.frontmatter.title}/>
-    </div>
+    </Layout>
   );
 };
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    allFile(filter: {id: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
+  query($slug: String!) {
+    allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1370, quality: 80, toFormat: JPG) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1370, quality: 80, toFormat: JPG) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name
