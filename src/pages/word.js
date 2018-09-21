@@ -54,13 +54,13 @@ export default ({ data, location }) => {
 
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
-        const sizes = imageNode[0].node.childImageSharp.sizes;
+        const fluid = imageNode[0].node.childImageSharp.fluid;
 
         return (
           <Post
             date={node.frontmatter.datetime}
             excerpt={node.excerpt}
-            image={{ altText: node.frontmatter.image.altText, sizes: sizes }}
+            image={{ altText: node.frontmatter.image.altText, fluid: fluid }}
             key={index}
             link={node.fields.slug}
             title={node.frontmatter.title}/>

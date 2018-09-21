@@ -12,8 +12,8 @@ export default ({ data, location }) => {
 
   // Find the image node that has the same file name
   const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
-  const sizes = imageNode[0].node.childImageSharp.sizes;
-  const src = imageNode[0].node.childImageSharp.sizes.src;
+  const fluid = imageNode[0].node.childImageSharp.fluid;
+  const src = imageNode[0].node.childImageSharp.fluid.src;
 
   const metaInfo = {
     description: post.excerpt,
@@ -69,7 +69,7 @@ export default ({ data, location }) => {
       <Post
         date={post.frontmatter.datetime}
         html={post.html}
-        image={{ altText: post.frontmatter.image.altText, sizes: sizes }}
+        image={{ altText: post.frontmatter.image.altText, fluid: fluid }}
         link={post.fields.slug}
         title={post.frontmatter.title}/>
     </Layout>
