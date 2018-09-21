@@ -7,28 +7,26 @@ import React from 'react';
 import styles from './work.module.css';
 
 const Piece = props => (
-  <Layout location={props.location}>
-    <div className={styles.piece}>
-      <h1 className={styles.pieceTitle}>{props.title}</h1>
-      {props.links ? (
-        <ul className={styles.pieceLinks}>
-          {props.links.map((link, index) =>
-            <li className={`typography-small`} key={index}>
-              <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
-            </li>
-          )}
-        </ul>
-      ) : null}
-      {props.client ? (
-        <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
-      ) : null}
-      <Img className={styles.pieceImage} fluid={props.fluid} alt={props.image.altText}/>
-      {props.children}
-    </div>
-  </Layout>
+  <div className={styles.piece}>
+    <h1 className={styles.pieceTitle}>{props.title}</h1>
+    {props.links ? (
+      <ul className={styles.pieceLinks}>
+        {props.links.map((link, index) =>
+          <li className={`typography-small`} key={index}>
+            <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
+          </li>
+        )}
+      </ul>
+    ) : null}
+    {props.client ? (
+      <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
+    ) : null}
+    <Img className={styles.pieceImage} fluid={props.fluid} alt={props.image.altText}/>
+    {props.children}
+  </div>
 );
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const metaInfo = {
     description: `A selection of my best work`,
     siteUrl: `http://leeallen.net/work`,
@@ -64,7 +62,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name={`description`} content={metaInfo.description}/>
@@ -83,7 +81,7 @@ export default ({ data }) => {
           </Piece>
         )
       })}
-    </div>
+    </Layout>
   );
 };
 
