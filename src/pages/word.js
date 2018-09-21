@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Helmet from 'react-helmet';
 import React from 'react';
@@ -71,7 +72,7 @@ export default ({ data, location }) => {
 
 export const query = graphql`
   query WordQuery {
-    allFile(filter: {id: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
+    allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
