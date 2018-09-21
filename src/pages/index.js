@@ -54,7 +54,7 @@ export default ({ data, location }) => (
     <div className={styles.container}>
       <Img
         alt={`Lee’s headshot`}
-        outerWrapperClassName={styles.headshot}
+        className={styles.headshot}
         sizes={data.file.childImageSharp.sizes}/>
       <h1 className={`${styles.copy} typography-align-center`}>
         I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
