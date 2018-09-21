@@ -1,21 +1,6 @@
 import Typography from 'typography';
 
-const typography = new Typography();
-const { rhythm, scale } = typography;
-
-const fontStack = [
-  `-apple-system`,
-  `BlinkMacSystemFont`,
-  `Segoe UI`,
-  `Roboto`,
-  `Oxygen-Sans`,
-  `Ubuntu`,
-  `Cantarell`,
-  `Helvetica Neue`,
-  `sans-serif`,
-];
-
-export default new Typography({
+const typography = new Typography({
   baseFontSize: `16px`,
   baseLineHeight: 1.5,
   scaleRatio: 1.5,
@@ -49,5 +34,18 @@ export default new Typography({
     '.typography-small': { ...adjustFontSizeTo(`12px`) },
   }),
 });
+const { rhythm, scale } = typography;
+
+const fontStack = [
+  `-apple-system`,
+  `BlinkMacSystemFont`,
+  `Segoe UI`,
+  `Roboto`,
+  `Oxygen-Sans`,
+  `Ubuntu`,
+  `Cantarell`,
+  `Helvetica Neue`,
+  `sans-serif`,
+];
 
 export { rhythm, scale, typography as default };
