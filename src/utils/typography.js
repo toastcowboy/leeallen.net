@@ -1,5 +1,8 @@
 import Typography from 'typography';
 
+const typography = new Typography();
+const { rhythm, scale } = typography;
+
 const fontStack = [
   `-apple-system`,
   `BlinkMacSystemFont`,
@@ -46,3 +49,5 @@ export default new Typography({
     '.typography-small': { ...adjustFontSizeTo(`12px`) },
   }),
 });
+
+export { rhythm, scale, typography as default };
