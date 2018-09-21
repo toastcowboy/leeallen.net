@@ -22,7 +22,7 @@ const Piece = props => (
       {props.client ? (
         <p className={`${styles.pieceClient} typography-small`}>{props.client}</p>
       ) : null}
-      <Img className={styles.pieceImage} sizes={props.sizes} alt={props.image.altText}/>
+      <Img className={styles.pieceImage} fluid={props.fluid} alt={props.image.altText}/>
       {props.children}
     </div>
   </Layout>
@@ -75,10 +75,10 @@ export default ({ data }) => {
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(edge =>
           node.frontmatter.image.name === edge.node.name);
-        const sizes = imageNode[0].node.childImageSharp.sizes;
+        const fluid = imageNode[0].node.childImageSharp.fluid;
 
         return (
-          <Piece key={index} sizes={sizes} {...node.frontmatter}>
+          <Piece key={index} fluid={fluid} {...node.frontmatter}>
             <div dangerouslySetInnerHTML={{ __html: node.html }} />
           </Piece>
         )
@@ -94,7 +94,7 @@ export const query = graphql`
         node {
           childImageSharp {
             # Comment
-            sizes(maxWidth: 1370, quality: 80, toFormat: JPG) {
+            fluid(maxWidth: 1370, quality: 80, toFormat: JPG) {
               ...GatsbyImageSharpSizes
             }
           }

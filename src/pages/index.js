@@ -56,7 +56,7 @@ export default ({ data, location }) => (
       <Img
         alt={`Lee’s headshot`}
         className={styles.headshot}
-        sizes={data.file.childImageSharp.sizes}/>
+        fluid={data.file.childImageSharp.fluid}/>
       <h1 className={`${styles.copy} typography-align-center`}>
         I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
       </h1>
@@ -71,7 +71,7 @@ export const query = graphql`
   query HomeQuery {
     file(name: {eq: "lee-allen-headshot"}) {
       childImageSharp {
-        sizes(maxWidth: 638, quality: 80, toFormat: JPG) {
+        fluid(maxWidth: 638, quality: 80, toFormat: JPG) {
           ...GatsbyImageSharpSizes
         }
       }
