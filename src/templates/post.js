@@ -77,7 +77,7 @@ export default ({ data, location }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query BlogPostQuery($slug: String!) {
     allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {

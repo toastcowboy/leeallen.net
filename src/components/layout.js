@@ -82,7 +82,7 @@ export default class extends Component {
     return (
       <StaticQuery
         query={graphql`
-          {
+          query IndexQuery {
             site {
               siteMetadata {
                 description

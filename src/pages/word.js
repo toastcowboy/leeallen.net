@@ -71,7 +71,7 @@ export default ({ data, location }) => {
 };
 
 export const query = graphql`
-  {
+  query WordQuery {
     allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
