@@ -1,6 +1,7 @@
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import React from 'react';
 
 import logoGitHub from '../assets/icons/logo-github.svg';
