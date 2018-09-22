@@ -1,9 +1,11 @@
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
 import Helmet from 'react-helmet';
 import React from 'react';
 
 import Post from '../components/post';
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const metaInfo = {
     description: `Assorted word droppings from Lee`,
     siteUrl: `http://leeallen.net/word`,
@@ -39,7 +41,7 @@ export default ({ data }) => {
   ];
 
   return (
-    <div>
+    <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
         <meta name="description" content={metaInfo.description}/>
@@ -52,30 +54,30 @@ export default ({ data }) => {
 
         // Find the image node that has the same file name
         const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
-        const sizes = imageNode[0].node.childImageSharp.sizes;
+        const fluid = imageNode[0].node.childImageSharp.fluid;
 
         return (
           <Post
             date={node.frontmatter.datetime}
             excerpt={node.excerpt}
-            image={{ altText: node.frontmatter.image.altText, sizes: sizes }}
+            image={{ altText: node.frontmatter.image.altText, fluid: fluid }}
             key={index}
             link={node.fields.slug}
             title={node.frontmatter.title}/>
         );
       })}
-    </div>
+    </Layout>
   );
 };
 
 export const query = graphql`
-  query WordQuery {
-    allFile(filter: {id: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
+  {
+    allFile(filter: {absolutePath: {regex: "/word/"}, extension: {regex: "/png|jpg|jpeg|gif/"}}) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1370, quality: 80) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1370, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
           name

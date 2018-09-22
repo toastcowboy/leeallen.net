@@ -1,5 +1,5 @@
 import Img from 'gatsby-image';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import React from 'react';
 
 import styles from './post.module.css';
@@ -7,14 +7,14 @@ import styles from './post.module.css';
 import Shiitake from 'shiitake';
 
 const HeroImage = props => (
-  <Img className={props.className} sizes={props.sizes} alt={props.altText}/>
+  <Img className={props.className} fluid={props.fluid} alt={props.altText}/>
 );
 
 export default props => {
   const imageProps = {
     alt: props.image.altText,
     className: styles.postImage,
-    sizes: props.image.sizes,
+    fluid: props.image.fluid,
   };
 
   return (

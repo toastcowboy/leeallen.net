@@ -1,5 +1,7 @@
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Link from 'gatsby-link';
+import Layout from '../components/layout';
+import { Link } from 'gatsby';
 import React from 'react';
 
 import logoGitHub from '../assets/icons/logo-github.svg';
@@ -48,27 +50,29 @@ const ElsewhereLink = props => (
   </a>
 );
 
-export default ({ data }) => (
-  <div className={styles.container}>
-    <Img
-      alt={`Lee’s headshot`}
-      outerWrapperClassName={styles.headshot}
-      sizes={data.file.childImageSharp.sizes}/>
-    <h1 className={`${styles.copy} typography-align-center`}>
-      I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
-    </h1>
-    <div className={styles.elsewhere}>
-      {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
+export default ({ data, location }) => (
+  <Layout location={location}>
+    <div className={styles.container}>
+      <Img
+        alt={`Lee’s headshot`}
+        className={styles.headshot}
+        fluid={data.file.childImageSharp.fluid}/>
+      <h1 className={`${styles.copy} typography-align-center`}>
+        I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
+      </h1>
+      <div className={styles.elsewhere}>
+        {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
+      </div>
     </div>
-  </div>
+  </Layout>
 );
 
 export const query = graphql`
-  query HomeQuery {
+  {
     file(name: {eq: "lee-allen-headshot"}) {
       childImageSharp {
-        sizes(maxWidth: 638, quality: 80, toFormat: JPG) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 638, quality: 80, toFormat: JPG) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
