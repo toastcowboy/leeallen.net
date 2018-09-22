@@ -70,7 +70,8 @@ gulp.task('deploy:upload', function deployUpload() {
   return gulp.src('public.tar.gz').pipe(gulpSSH.dest(paths.remote))
 });
 
-// This deployment helper task extracts the distribution tarball to the server directory and then deletes the tarball.
+// This deployment helper task extracts the distribution tarball to the server directory and then
+// deletes the tarball.
 gulp.task('deploy:extract', function deployExtract() {
   return gulpSSH.shell([
     ['cd ', paths.remote].join(''),
