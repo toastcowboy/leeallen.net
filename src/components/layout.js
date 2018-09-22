@@ -169,7 +169,7 @@ export default class extends Component {
                 <div className={contentClassNames.join(` `)} ref={this.setContentRef}>
                   <Header pathname={this.props.location.pathname}/>
                   <main>{this.props.children}</main>
-                  <Footer/>
+                  <Footer pathname={this.props.location.pathname}/>
                 </div>
               </div>
             </div>
