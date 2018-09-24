@@ -3,8 +3,8 @@ import debounce from 'lodash.debounce';
 import Helmet from 'react-helmet';
 import React, { Component } from 'react';
 
-import Footer from '../components/footer';
-import Header from '../components/header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 import favicon16 from '../assets/icons/favicon-16.png';
 import favicon32 from '../assets/icons/favicon-32.png';
@@ -13,7 +13,7 @@ import favicon62 from '../assets/icons/favicon-62.png';
 import favicon192 from '../assets/icons/favicon-192.png';
 import headshot from '../assets/images/lee-allen-headshot.png';
 
-import styles from './layout.module.css';
+import styles from './Layout.module.css';
 
 export default class extends Component {
   constructor(props) {

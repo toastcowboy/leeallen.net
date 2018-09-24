@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import React from 'react';
 
 import styles from './work.module.css';

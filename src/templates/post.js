@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import React from 'react';
 
-import Post from '../components/post';
+import Post from '../components/Post';
 
 export default ({ data, location }) => {
   const post = data.markdownRemark;
