@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly on Word page 1`] = `
+<header
+  className="headerWrapper"
+>
+  <div
+    className="header"
+  >
+    <a
+      aria-current="page"
+      className="navLogo"
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={Object {}}
+    >
+      <img
+        alt="Logo"
+        height={32}
+        src="test-file-stub"
+        width={32}
+      />
+    </a>
+    <nav
+      className="nav"
+    >
+      <ol
+        className="navList"
+      >
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            aria-current="page"
+            className="navLink"
+            href="/"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            style={Object {}}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            className="navLink"
+            href="/work"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Work
+          </a>
+        </li>
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            className="navLink navLinkActive"
+            href="/word"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Writing
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</header>
+`;
+
+exports[`Header renders correctly on home page 1`] = `
+<header
+  className="headerWrapper"
+>
+  <div
+    className="header"
+  >
+    <a
+      aria-current="page"
+      className="navLogo navLogoHome"
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={Object {}}
+    >
+      <img
+        alt="Logo"
+        height={32}
+        src="test-file-stub"
+        width={32}
+      />
+    </a>
+  </div>
+</header>
+`;
+
+exports[`Header renders correctly on homepage 1`] = `
+<header
+  className="headerWrapper"
+>
+  <div
+    className="header"
+  >
+    <a
+      aria-current="page"
+      className="navLogo"
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={Object {}}
+    >
+      <img
+        alt="Logo"
+        height={32}
+        src="test-file-stub"
+        width={32}
+      />
+    </a>
+    <nav
+      className="nav"
+    >
+      <ol
+        className="navList"
+      >
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            aria-current="page"
+            className="navLink"
+            href="/"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            style={Object {}}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            className="navLink"
+            href="/work"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Work
+          </a>
+        </li>
+        <li
+          className="navItem typography-semi-bold typography-small"
+        >
+          <a
+            className="navLink navLinkActive"
+            href="/word"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Writing
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</header>
+`;

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React from "react";
+import React from 'react';
 
 export default props => (
   <Layout location={props.location}>
