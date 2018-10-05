@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  className="footerWrapper"
+>
+  <div
+    className="footer typography-small"
+  >
+    © 2018 Lee Allen. All rights reserved.
+  </div>
+</footer>
+`;
