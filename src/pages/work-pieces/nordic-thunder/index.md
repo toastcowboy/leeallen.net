@@ -7,6 +7,8 @@ image:
 links:
 - href: "http://www.nordicthunder.com"
   text: "Live site"
+- href: "https://github.com/leeericallen/nt"
+  text: "Source code"
 title: "Nordic Thunder"
 type: "Work Piece"
 ---
