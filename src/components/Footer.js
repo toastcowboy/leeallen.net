@@ -13,7 +13,8 @@ export default props => {
   return (
     <footer className={styles.footerWrapper}>
       <div className={footerClassNames.join(` `)}>
-        © 2018 Lee Allen. All rights reserved.
+        Built using <a href="https://gatsbyjs.org" rel="nofollow noopener noreferrer" target="_blank">Gatsby</a> • View source on <a
+        href="https://github.com/leeericallen/leeallen.net" rel="nofollow noopener noreferrer" target="_blank">GitHub</a>
       </div>
     </footer>
   );
