@@ -36,12 +36,16 @@
 }
 
 .navItem {
-  display: inline-block;
+  background-color: #fff;
+  flex: auto;
+  line-height: 32px;
   margin-bottom: 0;
+  text-align: center;
 }
 
-.navItem:not(:last-of-type) {
-  padding-right: 12%;
+.navItemActive {
+  background-color: #000;
+  color: #fff;
 }
 
 .navLink {
@@ -73,4 +77,5 @@
 
 .navList {
   composes: listUnstyle from '../utils/mixins.module.css';
+  display: flex;
 }
