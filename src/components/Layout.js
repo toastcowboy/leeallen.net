@@ -155,7 +155,7 @@ export default class extends Component {
           ];
 
           return (
-            <div>
+            <React.Fragment>
               <Helmet>
                 <title>{metaInfo.title}</title>
                 <meta name={`description`} content={metaInfo.description}/>
@@ -171,7 +171,7 @@ export default class extends Component {
                   <Footer pathname={this.props.location.pathname}/>
                 </div>
               </div>
-            </div>
+            </React.Fragment>
           )
         }}/>
     );
