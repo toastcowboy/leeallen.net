@@ -19,9 +19,8 @@ export default class extends Component {
   constructor(props) {
     super(props);
 
-    // Create a callback ref for the content element
-    this.content = null;
-    this.setContentRef = element => { this.content = element; };
+    // Create a ref for the content element
+    this.content = React.createRef();
 
     // Bind event handlers
     this.handleResize = debounce(this.handleResize.bind(this), 200);
@@ -31,7 +30,7 @@ export default class extends Component {
      * to the bottom of the viewport
      */
     this.setContentHeight = () => {
-      if (this.content) this.content.style.minHeight = `${window.innerHeight}px`;
+      this.content.current.style.minHeight = `${window.innerHeight}px`;
     };
   }
 
@@ -166,7 +165,7 @@ export default class extends Component {
                 {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
               </Helmet>
               <div className={styles.container}>
-                <div className={contentClassNames.join(` `)} ref={this.setContentRef}>
+                <div className={contentClassNames.join(` `)} ref={this.content}>
                   <Header pathname={this.props.location.pathname}/>
                   <main>{this.props.children}</main>
                   <Footer pathname={this.props.location.pathname}/>
