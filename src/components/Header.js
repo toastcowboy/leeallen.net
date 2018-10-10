@@ -10,16 +10,12 @@ const NavItem = props => {
     `typography-semi-bold`,
     `typography-small`,
   ];
-  const linkClassNames = [styles.navLink];
 
-  if (props.pathname.match(props.pattern)) {
-    itemClassNames.push(styles.navItemActive);
-    linkClassNames.push(styles.navLinkActive);
-  }
+  if (props.pathname.match(props.pattern)) itemClassNames.push(styles.navItemActive);
 
   return (
     <li className={itemClassNames.join(` `)}>
-      <Link className={linkClassNames.join(` `)} to={props.href}>{props.label}</Link>
+      <Link className={styles.navLink} to={props.href}>{props.label}</Link>
     </li>
   );
 };
