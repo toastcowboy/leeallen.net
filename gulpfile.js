@@ -14,8 +14,9 @@ var gulpSSH = new GulpSSH({
 });
 var paths = {
   build: 'public',
-  remote: sshConfig.sshPath,
-  source: 'src'
+  publicHtml: sshConfig.paths.publicHtml,
+  source: 'src',
+  upload: sshConfig.paths.upload
 };
 
 // This task will create a new distribution folder and deploy it to the server.
@@ -24,8 +25,8 @@ gulp.task('deploy', function deploy(done) {
     'deploy:clean',
     'deploy:copy',
     'deploy:compress',
-    'deploy:clean-remote',
     'deploy:upload',
+    'deploy:clean-remote',
     'deploy:extract',
     'deploy:clean',
     done
@@ -58,7 +59,7 @@ gulp.task('deploy:copy', function deployCopy() {
 // This deployment helper task deletes all existing files in the server directory.
 gulp.task('deploy:clean-remote', function deployCleanRemote() {
   return gulpSSH.shell([
-    ['cd ', paths.remote].join(''),
+    ['cd ', paths.publicHtml].join(''),
     'rm -rf ./*',
     'rm -rf ./.htaccess'
   ], { filePath: 'clean-remote-commands.log' })
@@ -67,14 +68,14 @@ gulp.task('deploy:clean-remote', function deployCleanRemote() {
 
 // This deployment helper task uploads the distribution tarball to the server directory.
 gulp.task('deploy:upload', function deployUpload() {
-  return gulp.src('public.tar.gz').pipe(gulpSSH.dest(paths.remote))
+  return gulp.src('public.tar.gz').pipe(gulpSSH.dest(paths.upload))
 });
 
 // This deployment helper task extracts the distribution tarball to the server directory and then
 // deletes the tarball.
 gulp.task('deploy:extract', function deployExtract() {
   return gulpSSH.shell([
-    ['cd ', paths.remote].join(''),
+    ['cd ', paths.publicHtml].join(''),
     'gunzip ./public.tar.gz',
     'tar -xvf ./public.tar --overwrite',
     'rm ./public.tar'
