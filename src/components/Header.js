@@ -5,15 +5,17 @@ import logo from '../assets/icons/logo.svg';
 import styles from './Header.module.css';
 
 const NavItem = props => {
-  const linkClassNames = [];
+  const itemClassNames = [
+    styles.navItem,
+    `typography-semi-bold`,
+    `typography-small`,
+  ];
 
-  linkClassNames.push(styles.navLink);
-
-  if (props.pathname.match(props.pattern)) linkClassNames.push(styles.navLinkActive);
+  if (props.pathname.match(props.pattern)) itemClassNames.push(styles.navItemActive);
 
   return (
-    <li className={`${styles.navItem} typography-semi-bold typography-small`}>
-      <Link className={linkClassNames.join(` `)} to={props.href}>{props.label}</Link>
+    <li className={itemClassNames.join(` `)}>
+      <Link className={styles.navLink} to={props.href}>{props.label}</Link>
     </li>
   );
 };

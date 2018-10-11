@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "gatsby": "^2.0.7",
+    "gatsby-cli": "^2.4.3",
     "gatsby-image": "^2.0.8",
     "gatsby-link": "^2.0.1",
     "gatsby-plugin-google-analytics": "^2.0.6",
@@ -53,6 +54,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-gzip": "^1.4.2",
+    "gulp-shell": "^0.6.5",
     "gulp-ssh": "^0.7.0",
     "gulp-tar": "^2.1.0",
     "identity-obj-proxy": "^3.0.0",
@@ -69,7 +71,10 @@
       ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
       ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file-mock.js"
     },
-    "testPathIgnorePatterns": ["node_modules", ".cache"],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(gatsby)/)"
     ],
