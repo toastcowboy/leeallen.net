@@ -30,7 +30,7 @@ export default class extends Component {
      * to the bottom of the viewport
      */
     this.setContentHeight = () => {
-       if (this.content.current) this.content.current.style.minHeight = `${window.innerHeight}px`;
+      if (this.content.current) this.content.current.style.minHeight = `${window.innerHeight}px`;
     };
   }
 
