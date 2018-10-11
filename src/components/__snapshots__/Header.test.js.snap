@@ -55,10 +55,10 @@ exports[`Header renders correctly on Word page 1`] = `
           </a>
         </li>
         <li
-          className="navItem typography-semi-bold typography-small"
+          className="navItem typography-semi-bold typography-small navItemActive"
         >
           <a
-            className="navLink navLinkActive"
+            className="navLink"
             href="/word"
             onClick={[Function]}
             onMouseEnter={[Function]}
