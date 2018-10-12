@@ -1,7 +1,3 @@
-:root {
-  --color-light-gray: hsl(0, 0%, 95%);
-
-  --gutter-default: 16px;
-
-  --z-index-header: 10;
-}
+@value colorLightGray: hsl(0, 0%, 95%);
+@value gutterDefault: 16px;
+@value zIndexHeader: 10;

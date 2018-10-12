@@ -1,8 +1,10 @@
 @value variables: '../utils/variables.module.css';
+@value colorLightGray from variables;
+@value gutterDefault from variables;
 
 .piece {
-  padding-left: var(--gutter-default);
-  padding-right: var(--gutter-default);
+  padding-left: gutterDefault;
+  padding-right: gutterDefault;
 }
 
 .piece:not(:last-of-type) {
@@ -22,7 +24,7 @@
 
 @media all and (min-width: 717px) {
   .pieceImage {
-    border: var(--gutter-default) solid var(--color-light-gray);
+    border: gutterDefault solid colorLightGray;
     left: auto;
     margin-left: calc(-100vw / 2 + 685px / 2);
     margin-right: calc(-100vw / 2 + 685px / 2);
