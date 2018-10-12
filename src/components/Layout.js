@@ -13,7 +13,7 @@ import favicon62 from '../assets/icons/favicon-62.png';
 import favicon192 from '../assets/icons/favicon-192.png';
 import headshot from '../assets/images/lee-allen-headshot.png';
 
-import styles from './Layout.module.css';
+import styles from './Layout.module.scss';
 
 export default class extends Component {
   constructor(props) {

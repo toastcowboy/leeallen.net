@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 import { Link } from 'gatsby';
 import React from 'react';
 
-import styles from './404.module.css';
+import styles from './404.module.scss';
 
 export default props => (
   <Layout location={props.location}>

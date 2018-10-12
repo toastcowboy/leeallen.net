@@ -1,5 +1,5 @@
-@value variables: '../utils/variables.module.css';
-@value colorLightGray from variables;
+@import '../utils/mixins';
+@import '../utils/variables';
 
 .footer {
   line-height: 32px;
@@ -11,7 +11,7 @@
 }
 
 .footerWrapper {
-  background-color: colorLightGray;
+  background-color: $colorLightGray;
   margin-top: 20px;
 }
 

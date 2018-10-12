@@ -1,10 +1,10 @@
-@value variables: '../utils/variables.module.css';
-@value gutterDefault from variables;
+@import '../utils/mixins';
+@import '../utils/variables';
 
 .post {
   overflow: hidden;
-  padding-left: gutterDefault;
-  padding-right: gutterDefault;
+  padding-left: $gutterDefault;
+  padding-right: $gutterDefault;
 }
 
 .post:not(:last-of-type) {

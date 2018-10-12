@@ -1,0 +1,15 @@
+@import './variables';
+
+@mixin gridStandard {
+  column-gap: $gutterDefault;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: $gutterDefault;
+  padding-right: $gutterDefault;
+}
+
+@mixin listUnstyle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

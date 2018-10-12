@@ -1,20 +1,19 @@
-@value variables: '../utils/variables.module.css';
-@value colorLightGray from variables;
-@value zIndexHeader from variables;
+@import '../utils/mixins';
+@import '../utils/variables';
 
 .header {
-  composes: gridStandard from '../utils/mixins.module.css';
+  @include gridStandard;
   padding-bottom: 16px;
   padding-top: 16px;
   text-transform: uppercase;
 }
 
 .headerWrapper {
-  background-color: colorLightGray;
+  background-color: $colorLightGray;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
-  z-index: zIndexHeader;
+  z-index: $zIndexHeader;
 }
 
 @media all and (min-width: 685px) {
@@ -73,6 +72,6 @@
 }
 
 .navList {
-  composes: listUnstyle from '../utils/mixins.module.css';
+  @include listUnstyle;
   display: flex;
 }

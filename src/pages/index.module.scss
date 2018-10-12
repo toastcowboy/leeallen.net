@@ -1,3 +1,6 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+
 .container {
   column-gap: 16px;
   display: grid;
