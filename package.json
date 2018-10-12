@@ -1,22 +1,13 @@
 {
-  "name": "leeallen.net",
-  "description": "Lee Allen’s personal site",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/leeericallen/leeallen.net.git"
-  },
+  "license": "UNLICENSED",
+  "private": true,
   "author": "Lee Allen",
-  "bugs": {
-    "url": "https://github.com/leeericallen/leeallen.net/issues"
-  },
-  "homepage": "https://github.com/leeericallen/leeallen.net",
   "scripts": {
     "develop": "gatsby develop",
+    "test": "jest",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "deploy": "gulp deploy",
-    "test": "jest"
+    "deploy": "gulp deploy"
   },
   "dependencies": {
     "gatsby": "^2.0.7",
