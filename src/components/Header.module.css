@@ -1,6 +1,4 @@
 @value variables: '../utils/variables.module.css';
-@value colorLightGray from variables;
-@value zIndexHeader from variables;
 
 .header {
   composes: gridStandard from '../utils/mixins.module.css';
@@ -10,11 +8,11 @@
 }
 
 .headerWrapper {
-  background-color: colorLightGray;
+  background-color: var(--color-light-gray);
   margin-bottom: 20px;
   position: sticky;
   top: 0;
-  z-index: zIndexHeader;
+  z-index: var(--z-index-header);
 }
 
 @media all and (min-width: 685px) {

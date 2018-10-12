@@ -1,12 +1,11 @@
 @value variables: './variables.module.css';
-@value gutterDefault from variables;
 
 .gridStandard {
-  column-gap: gutterDefault;
+  column-gap: var(--gutter-default);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding-left: gutterDefault;
-  padding-right: gutterDefault;
+  padding-left: var(--gutter-default);
+  padding-right: var(--gutter-default);
 }
 
 .listUnstyle {
