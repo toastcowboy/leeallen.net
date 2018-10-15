@@ -2,6 +2,6 @@
 @import '../utils/variables';
 
 .container {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }

@@ -2,11 +2,7 @@
 @import '../utils/variables';
 
 .container {
-  column-gap: 16px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-left: 16px;
-  padding-right: 16px;
+  @include gridStandard;
 }
 
 .copy {
@@ -22,7 +18,7 @@
 }
 
 .elsewhereLink {
-  padding: 8px;
+  padding: $gutter / 2;
 }
 
 .elsewhereLogo {

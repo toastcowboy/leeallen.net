@@ -2,8 +2,8 @@
 @import '../utils/variables';
 
 .piece {
-  padding-left: $gutterDefault;
-  padding-right: $gutterDefault;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 .piece:not(:last-of-type) {
@@ -15,27 +15,27 @@
 }
 
 .pieceImage {
-  left: -16px;
+  left: -$gutter;
   margin-bottom: 24px;
   position: relative;
-  width: calc(100% + 32px);
+  width: calc(100% + #{$gutter * 2});
 }
 
-@media all and (min-width: 717px) {
+@media all and (min-width: ($largeMinWidth + ($gutter * 2))) {
   .pieceImage {
-    border: $gutterDefault solid $colorLightGray;
+    border: $gutter solid $colorLightestGray;
     left: auto;
-    margin-left: calc(-100vw / 2 + 685px / 2);
-    margin-right: calc(-100vw / 2 + 685px / 2);
+    margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
     width: auto;
   }
 }
 
-@media all and (min-width: 1402px) {
+@media all and (min-width: (($largeMinWidth * 2) + ($gutter * 2))) {
   .pieceImage {
-    margin-left: calc(-1402px / 2 + 685px / 2);
-    margin-right: calc(-1402px / 2 + 685px / 2);
-    width: 1370px;
+    margin-left: calc(#{-(($largeMinWidth * 2) + ($gutter * 2))} / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(#{-(($largeMinWidth * 2) + ($gutter * 2))} / 2 + #{$largeMinWidth} / 2);
+    width: $largeMinWidth * 2;
   }
 }
 

@@ -3,8 +3,8 @@
 
 .post {
   overflow: hidden;
-  padding-left: $gutterDefault;
-  padding-right: $gutterDefault;
+  padding-left: $gutter;
+  padding-right: $gutter;
 }
 
 .post:not(:last-of-type) {
@@ -12,10 +12,10 @@
 }
 
 .postImage {
-  left: -16px;
+  left: -$gutter;
   margin-bottom: 12px;
   position: relative;
-  width: calc(100% + 32px);
+  width: calc(100% + #{$gutter * 2});
 }
 
 .postTitle {

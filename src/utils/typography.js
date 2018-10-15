@@ -19,7 +19,7 @@ const typography = new Typography({
   headerFontFamily: fontStack,
   bodyFontFamily: fontStack,
   headerColor: `inherit`,
-  bodyColor: `hsla(0, 0%, 0%, 0.8)`,
+  bodyColor: `hsl(0, 0%, 20%)`,
   headerWeight: 600,
   bodyWeight: 400,
   boldWeight: 600,
