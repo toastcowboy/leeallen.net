@@ -10,7 +10,7 @@ import logoLastFm from '../assets/icons/logo-lastfm.svg';
 import logoLinkedIn from '../assets/icons/logo-linkedin.svg';
 import logoTwitter from '../assets/icons/logo-twitter.svg';
 import resume from '../downloads/lee-allen-resume.pdf';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const elsewhereLinks = [
   {

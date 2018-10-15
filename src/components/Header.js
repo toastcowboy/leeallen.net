@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 import logo from '../assets/icons/logo.svg';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 const NavItem = props => {
   const itemClassNames = [

@@ -1,0 +1,23 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+
+.post {
+  overflow: hidden;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+.post:not(:last-of-type) {
+  margin-bottom: 36px;
+}
+
+.postImage {
+  left: -$gutter;
+  margin-bottom: 12px;
+  position: relative;
+  width: calc(100% + #{$gutter * 2});
+}
+
+.postTitle {
+  margin-bottom: 0;
+}

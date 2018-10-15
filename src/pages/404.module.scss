@@ -1,0 +1,7 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+
+.container {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}

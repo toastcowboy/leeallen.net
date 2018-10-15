@@ -1,32 +1,31 @@
-@value variables: '../utils/variables.module.css';
-@value colorLightGray from variables;
-@value zIndexHeader from variables;
+@import '../utils/mixins';
+@import '../utils/variables';
 
 .header {
-  composes: gridStandard from '../utils/mixins.module.css';
+  @include gridStandard;
   padding-bottom: 16px;
   padding-top: 16px;
   text-transform: uppercase;
 }
 
 .headerWrapper {
-  background-color: colorLightGray;
+  background-color: $colorLightestGray;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
-  z-index: zIndexHeader;
+  z-index: $zIndexHeader;
 }
 
-@media all and (min-width: 685px) {
+@media all and (min-width: $largeMinWidth) {
   .header {
     margin-left: auto;
     margin-right: auto;
-    max-width: 685px;
+    max-width: $largeMinWidth;
   }
 
   .headerWrapper {
-    margin-left: calc(-100vw / 2 + 685px / 2);
-    margin-right: calc(-100vw / 2 + 685px / 2);
+    margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
   }
 }
 
@@ -36,7 +35,7 @@
 }
 
 .navItem {
-  border-bottom: 2px solid hsla(0, 0%, 0%, 0.2);
+  border-bottom: 2px solid $colorLightGray;
   flex: auto;
   line-height: 27px;
   margin-bottom: 0;
@@ -47,7 +46,7 @@
 
 .navItem:hover,
 .navItemActive {
-  border-bottom-color: hsla(0, 0%, 0%, 0.8);
+  border-bottom-color: $colorDarkGray;
 }
 
 .navLink {
@@ -73,6 +72,6 @@
 }
 
 .navList {
-  composes: listUnstyle from '../utils/mixins.module.css';
+  @include listUnstyle;
   display: flex;
 }
