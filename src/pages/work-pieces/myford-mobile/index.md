@@ -11,6 +11,7 @@ links:
   text: "App Store"
 - href: "https://play.google.com/store/apps/details?id=com.ford.mfm&hl=en"
   text: "Google Play"
+order: 2
 title: "MyFord Mobile"
 type: "Work Piece"
 ---

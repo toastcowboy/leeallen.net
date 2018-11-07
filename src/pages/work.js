@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import React from 'react';
 
-import styles from './work.module.css';
+import styles from './work.module.scss';
 
 const Piece = props => (
   <div className={styles.piece}>
@@ -102,7 +102,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       filter: {frontmatter: {type: {eq: "Work Piece"}}},
-      sort: {fields: [frontmatter___date], order: DESC}
+      sort: {fields: [frontmatter___order], order: ASC}
     ) {
       edges {
         node {

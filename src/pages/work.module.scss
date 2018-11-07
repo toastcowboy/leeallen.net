@@ -1,0 +1,58 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+
+.piece {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+.piece:not(:last-of-type) {
+  margin-bottom: 72px;
+}
+
+.pieceClient {
+  margin-bottom: 12px;
+}
+
+.pieceImage {
+  left: -$gutter;
+  margin-bottom: 24px;
+  position: relative;
+  width: calc(100% + #{$gutter * 2});
+}
+
+@media all and (min-width: ($largeMinWidth + ($gutter * 2))) {
+  .pieceImage {
+    border: $gutter solid $colorLightestGray;
+    left: auto;
+    margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+    width: auto;
+  }
+}
+
+@media all and (min-width: (($largeMinWidth * 2) + ($gutter * 2))) {
+  .pieceImage {
+    margin-left: calc(#{-(($largeMinWidth * 2) + ($gutter * 2))} / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(#{-(($largeMinWidth * 2) + ($gutter * 2))} / 2 + #{$largeMinWidth} / 2);
+    width: $largeMinWidth * 2;
+  }
+}
+
+.pieceLinks {
+  @include listUnstyle;
+}
+
+.pieceLinks li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.pieceLinks li:not(:last-of-type):after {
+  content: '•';
+  padding: 0 1ch;
+}
+
+.pieceTitle {
+  margin-bottom: 0;
+}

@@ -1,0 +1,29 @@
+@import '../utils/mixins';
+@import '../utils/variables';
+
+.footer {
+  line-height: 32px;
+  padding: 0 $gutter;
+}
+
+.footerHome {
+  text-align: center;
+}
+
+.footerWrapper {
+  background-color: $colorLightestGray;
+  margin-top: 20px;
+}
+
+@media all and (min-width: $largeMinWidth) {
+  .footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $largeMinWidth;
+  }
+
+  .footerWrapper {
+    margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+    margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+  }
+}

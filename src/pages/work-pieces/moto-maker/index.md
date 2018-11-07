@@ -4,6 +4,7 @@ date: "2016-09-30"
 image:
   altText: "Screenshot"
   name: "moto-maker-screenshot"
+order: 1
 title: "Moto Maker"
 type: "Work Piece"
 ---

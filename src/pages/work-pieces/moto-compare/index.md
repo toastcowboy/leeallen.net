@@ -7,6 +7,7 @@ image:
 links:
 - href: "https://motorola.com/us/compare-smartphones"
   text: "Live site"
+order: 6
 title: "Compare Phones"
 type: "Work Piece"
 ---
