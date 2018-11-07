@@ -11,6 +11,7 @@ links:
   text: "App Store"
 - href: "https://play.google.com/store/apps/details?id=com.ameren.mobile&hl=en_US"
   text: "Google Play"
+order: 4
 title: "Ameren Mobile"
 type: "Work Piece"
 ---

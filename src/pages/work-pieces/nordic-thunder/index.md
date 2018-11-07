@@ -9,6 +9,7 @@ links:
   text: "Live site"
 - href: "https://github.com/leeericallen/nt"
   text: "Source code"
+order: 7
 title: "Nordic Thunder"
 type: "Work Piece"
 ---

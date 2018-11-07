@@ -102,7 +102,7 @@ export const query = graphql`
     }
     allMarkdownRemark(
       filter: {frontmatter: {type: {eq: "Work Piece"}}},
-      sort: {fields: [frontmatter___date], order: DESC}
+      sort: {fields: [frontmatter___order], order: ASC}
     ) {
       edges {
         node {

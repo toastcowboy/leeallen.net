@@ -7,6 +7,7 @@ image:
 links:
 - href: "https://motorola.com/us/moto-mods"
   text: "Live site"
+order: 5
 title: "Moto Mods"
 type: "Work Piece"
 ---
