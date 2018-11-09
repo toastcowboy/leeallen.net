@@ -6,9 +6,9 @@ import React from 'react';
 import Post from '../components/Post';
 
 export default ({ data, location }) => {
-  const post = data.markdownRemark;
-  const slugArray = post.fields.slug.split(`/`);
-  const name = slugArray.splice(slugArray.length - 2, 1)[0];
+  const post = data.allMarkdownRemark.edges[0].node;
+  const pathArray = post.frontmatter.path.split(`/`);
+  const name = pathArray.splice(pathArray.length - 1, 1)[0];
 
   // Find the image node that has the same file name
   const imageNode = data.allFile.edges.filter(({ node }) => node.name === name);
@@ -18,7 +18,7 @@ export default ({ data, location }) => {
   const metaInfo = {
     description: post.excerpt,
     image: `http://leeallen.net${src}`,
-    siteUrl: `http://leeallen.net${post.fields.slug}`,
+    siteUrl: `http://leeallen.net${post.frontmatter.path}`,
     title: `Lee Allen — ${post.frontmatter.title}`,
   };
   const metaOpenGraph = [
@@ -70,7 +70,7 @@ export default ({ data, location }) => {
         date={post.frontmatter.datetime}
         html={post.html}
         image={{ altText: post.frontmatter.image.altText, fluid: fluid }}
-        link={post.fields.slug}
+        link={post.frontmatter.path}
         title={post.frontmatter.title}/>
     </Layout>
   );
@@ -90,21 +90,23 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 300)
-      fields {
-        slug
-      }
-      fileAbsolutePath
-      frontmatter {
-        datetime(formatString: "MMM. Do, YYYY")
-        image {
-          altText
-          name
+    allMarkdownRemark(filter: {frontmatter: {path: {eq: $slug}}}) {
+      edges {
+        node {
+          excerpt(pruneLength: 300)
+          fileAbsolutePath
+          frontmatter {
+            datetime(formatString: "MMM. Do, YYYY")
+            image {
+              altText
+              name
+            }
+            path
+            title
+          }
+          html
         }
-        title
       }
-      html
     }
   }
 `;

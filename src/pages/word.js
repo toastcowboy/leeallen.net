@@ -62,7 +62,7 @@ export default ({ data, location }) => {
             excerpt={node.excerpt}
             image={{ altText: node.frontmatter.image.altText, fluid: fluid }}
             key={index}
-            link={node.fields.slug}
+            link={node.frontmatter.path}
             title={node.frontmatter.title}/>
         );
       })}
@@ -84,13 +84,13 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(filter: {frontmatter: {type: {eq: "Word Post"}}}, sort: {fields: [frontmatter___datetime], order: DESC}) {
+    allMarkdownRemark(
+      filter: {frontmatter: {type: {eq: "Word Post"}}},
+      sort: {fields: [frontmatter___datetime], order: DESC}
+    ) {
       edges {
         node {
           excerpt(pruneLength: 300)
-          fields {
-            slug
-          }
           fileAbsolutePath
           frontmatter {
             datetime(formatString: "MMM. Do, YYYY")
@@ -98,6 +98,7 @@ export const query = graphql`
               altText
               name
             }
+            path
             title
           }
           html
