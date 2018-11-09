@@ -3,6 +3,7 @@ datetime: "2018-09-16T16:00-07:00"
 image:
   altText: "Minnesota Vikings on the field"
   name: "vikings-failures"
+path: "/word/2018/09/16/vikings-failures"
 title: "The top three soul-crushing Vikings failures of my life"
 type: "Word Post"
 ---
