@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import React from 'react';
 
 import styles from './work.module.scss';
@@ -13,7 +14,12 @@ const Piece = props => (
       <ul className={styles.pieceLinks}>
         {props.links.map((link, index) =>
           <li className={`typography-small`} key={index}>
-            <a href={link.href} rel={`nofollow noopener noreferrer`} target={`_blank`}>{link.text}</a>
+            <OutboundLink
+              href={link.href}
+              rel={`nofollow noopener noreferrer`}
+              target={`_blank`}>
+              {link.text}
+            </OutboundLink>
           </li>
         )}
       </ul>

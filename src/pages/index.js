@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import React from 'react';
 
 import logoGitHub from '../assets/icons/logo-github.svg';
@@ -41,13 +42,13 @@ const elsewhereLinks = [
 ];
 
 const ElsewhereLink = props => (
-  <a
+  <OutboundLink
     className={styles.elsewhereLink}
     href={props.href}
     rel={`nofollow noopener noreferrer`}
     target={`_blank`}>
     <img className={styles.elsewhereLogo} src={props.logo} alt={props.altText}/>
-  </a>
+  </OutboundLink>
 );
 
 export default ({ data, location }) => (
