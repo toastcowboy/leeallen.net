@@ -10,6 +10,7 @@ exports[`Footer renders correctly 1`] = `
     Built using 
     <a
       href="https://gatsbyjs.org"
+      onClick={[Function]}
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
@@ -18,6 +19,7 @@ exports[`Footer renders correctly 1`] = `
      • View source on 
     <a
       href="https://github.com/leeericallen/leeallen.net"
+      onClick={[Function]}
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
