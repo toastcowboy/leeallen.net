@@ -35,7 +35,7 @@ const Piece = props => (
 export default ({ data, location }) => {
   const metaInfo = {
     description: `A selection of my best work`,
-    siteUrl: `http://leeallen.net/work`,
+    siteUrl: `https://leeallen.net/work`,
     title: `Lee Allen — Work`,
   };
   const metaOpenGraph = [
@@ -66,6 +66,24 @@ export default ({ data, location }) => {
       name: `twitter:description`,
     },
   ];
+  const structuredData = JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://leeallen.net",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://leeallen.net/work",
+      },
+    ],
+  });
 
   return (
     <Layout location={location}>
@@ -74,6 +92,7 @@ export default ({ data, location }) => {
         <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+        <script type={`application/ld+json`}>{structuredData}</script>
       </Helmet>
       {data.allMarkdownRemark.edges.map(({node}, index) => {
         // Find the image node that has the same file name

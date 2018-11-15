@@ -153,6 +153,19 @@ export default class extends Component {
               name: `twitter:image`,
             },
           ];
+          const structuredData = JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Lee Allen",
+            "url": `${metaInfo.siteUrl}`,
+            "sameAs": [
+              "https://linkedin.com/in/leeericallen",
+              "https://twitter.com/leeericallen",
+              "https://github.com/leeericallen",
+              "https://instagram.com/toastcowboy",
+              "https://last.fm/user/toastcowboy",
+            ]
+          });
 
           return (
             <React.Fragment>
@@ -163,6 +176,7 @@ export default class extends Component {
                   <link key={index} rel={`icon`} {...favicon} type={`image/png`}/>)}
                 {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
                 {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+                <script type={`application/ld+json`}>{structuredData}</script>
               </Helmet>
               <div className={styles.container}>
                 <div className={contentClassNames.join(` `)} ref={this.content}>
