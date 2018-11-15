@@ -1,9 +1,7 @@
-import { graphql, withPrefix } from 'gatsby';
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import React from 'react';
-
-import logo from '../assets/icons/logo.svg';
 
 import Post from '../components/Post';
 
