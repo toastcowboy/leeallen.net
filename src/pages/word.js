@@ -8,7 +8,7 @@ import Post from '../components/Post';
 export default ({ data, location }) => {
   const metaInfo = {
     description: `Assorted word droppings from Lee`,
-    siteUrl: `http://leeallen.net/word`,
+    siteUrl: `https://leeallen.net/word`,
     title: `Lee Allen — Writing`,
   };
   const metaOpenGraph = [
@@ -39,14 +39,33 @@ export default ({ data, location }) => {
       name: `twitter:description`,
     },
   ];
+  const structuredData = JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://leeallen.net",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Word",
+        "item": "https://leeallen.net/word",
+      },
+    ],
+  });
 
   return (
     <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
-        <meta name="description" content={metaInfo.description}/>
+        <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+        <script type={`application/ld+json`}>{structuredData}</script>
       </Helmet>
       {data.allMarkdownRemark.edges.map(({ node }, index) => {
         const fapArray = node.fileAbsolutePath.split(`/`);
