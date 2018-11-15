@@ -1,7 +1,9 @@
-import { graphql } from 'gatsby';
+import { graphql, withPrefix } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import React from 'react';
+
+import logo from '../assets/icons/logo.svg';
 
 import Post from '../components/Post';
 
@@ -17,8 +19,8 @@ export default ({ data, location }) => {
 
   const metaInfo = {
     description: post.excerpt,
-    image: `http://leeallen.net${src}`,
-    siteUrl: `http://leeallen.net${post.frontmatter.path}`,
+    image: `https://leeallen.net${src}`,
+    siteUrl: `https://leeallen.net${post.frontmatter.path}`,
     title: `Lee Allen — ${post.frontmatter.title}`,
   };
   const metaOpenGraph = [
@@ -57,7 +59,34 @@ export default ({ data, location }) => {
       name: `twitter:image`,
     },
   ];
-  const structuredData = JSON.stringify({
+  const sdArticle = JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${metaInfo.siteUrl}`,
+    },
+    "headline": `${post.frontmatter.title}`,
+    "image": [
+      `https://leeallen.net${src}`,
+    ],
+    "datePublished": `${post.frontmatter.dateraw}`,
+    "dateModified": `${post.frontmatter.dateraw}`,
+    "author": {
+      "@type": "Person",
+      "name": "Lee Allen",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "leeallen.net",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://leeallen.net/publisher-logo.png",
+      }
+    },
+    "description": `${metaInfo.description}`,
+  });
+  const sdBreadcrumbList = JSON.stringify({
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -77,7 +106,7 @@ export default ({ data, location }) => {
         "@type": "ListItem",
         "position": 3,
         "name": `${post.frontmatter.title}`,
-        "item": `http://leeallen.net${post.frontmatter.path}`,
+        "item": `${metaInfo.siteUrl}`,
       },
     ],
   });
@@ -89,7 +118,8 @@ export default ({ data, location }) => {
         <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
-        <script type={`application/ld+json`}>{structuredData}</script>
+        <script type={`application/ld+json`}>{sdArticle}</script>
+        <script type={`application/ld+json`}>{sdBreadcrumbList}</script>
       </Helmet>
       <Post
         date={post.frontmatter.datetime}
@@ -121,6 +151,7 @@ export const query = graphql`
           excerpt(pruneLength: 300)
           fileAbsolutePath
           frontmatter {
+            dateraw: datetime
             datetime(formatString: "MMM. Do, YYYY")
             image {
               altText
