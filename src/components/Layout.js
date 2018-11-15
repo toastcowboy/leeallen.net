@@ -172,6 +172,7 @@ export default class extends Component {
               <Helmet>
                 <title>{metaInfo.title}</title>
                 <meta name={`description`} content={metaInfo.description}/>
+                <meta name={`robots`} content={`NOYDIR, NOODP`}/>
                 {favicons.map((favicon, index) =>
                   <link key={index} rel={`icon`} {...favicon} type={`image/png`}/>)}
                 {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}

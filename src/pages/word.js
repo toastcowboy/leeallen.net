@@ -62,7 +62,7 @@ export default ({ data, location }) => {
     <Layout location={location}>
       <Helmet>
         <title>{metaInfo.title}</title>
-        <meta name="description" content={metaInfo.description}/>
+        <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
         <script type={`application/ld+json`}>{structuredData}</script>
