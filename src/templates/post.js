@@ -57,6 +57,30 @@ export default ({ data, location }) => {
       name: `twitter:image`,
     },
   ];
+  const structuredData = JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://leeallen.net",
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Writing",
+        "item": "https://leeallen.net/word",
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": `${post.frontmatter.title}`,
+        "item": `http://leeallen.net${post.frontmatter.path}`,
+      },
+    ],
+  });
 
   return (
     <Layout location={location}>
@@ -65,6 +89,7 @@ export default ({ data, location }) => {
         <meta name={`description`} content={metaInfo.description}/>
         {metaOpenGraph.map((meta, index) => <meta key={index} {...meta}/>)}
         {metaTwitter.map((meta, index) => <meta key={index} {...meta}/>)}
+        <script type={`application/ld+json`}>{structuredData}</script>
       </Helmet>
       <Post
         date={post.frontmatter.datetime}

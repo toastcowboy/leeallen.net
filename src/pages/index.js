@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import { Link } from 'gatsby';
@@ -51,22 +52,40 @@ const ElsewhereLink = props => (
   </OutboundLink>
 );
 
-export default ({ data, location }) => (
-  <Layout location={location}>
-    <div className={styles.container}>
-      <Img
-        alt={`Lee’s headshot`}
-        className={styles.headshot}
-        fluid={data.file.childImageSharp.fluid}/>
-      <h1 className={`${styles.copy} typography-align-center`}>
-        I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
-      </h1>
-      <div className={styles.elsewhere}>
-        {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
+export default ({ data, location }) => {
+  const structuredData = JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://leeallen.net",
+      },
+    ],
+  });
+
+  return (
+    <Layout location={location}>
+      <Helmet>
+        <script type={`application/ld+json`}>{structuredData}</script>
+      </Helmet>
+      <div className={styles.container}>
+        <Img
+          alt={`Lee’s headshot`}
+          className={styles.headshot}
+          fluid={data.file.childImageSharp.fluid}/>
+        <h1 className={`${styles.copy} typography-align-center`}>
+          I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, read my <Link to={`/word`}>writing</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
+        </h1>
+        <div className={styles.elsewhere}>
+          {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
+        </div>
       </div>
-    </div>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export const query = graphql`
   {
