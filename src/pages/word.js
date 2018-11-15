@@ -8,7 +8,7 @@ import Post from '../components/Post';
 export default ({ data, location }) => {
   const metaInfo = {
     description: `Assorted word droppings from Lee`,
-    siteUrl: `http://leeallen.net/word`,
+    siteUrl: `https://leeallen.net/word`,
     title: `Lee Allen — Writing`,
   };
   const metaOpenGraph = [

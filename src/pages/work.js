@@ -35,7 +35,7 @@ const Piece = props => (
 export default ({ data, location }) => {
   const metaInfo = {
     description: `A selection of my best work`,
-    siteUrl: `http://leeallen.net/work`,
+    siteUrl: `https://leeallen.net/work`,
     title: `Lee Allen — Work`,
   };
   const metaOpenGraph = [
