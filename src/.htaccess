@@ -897,42 +897,42 @@ ServerSignature Off
 #
 # https://httpd.apache.org/docs/current/mod/mod_brotli.html#precompressed
 
-# <IfModule mod_headers.c>
+<IfModule mod_headers.c>
 
-#     RewriteCond %{HTTP:Accept-Encoding} br
-#     RewriteCond %{REQUEST_FILENAME}\.br -f
-#     RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.br [L]
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}\.br -f
+    RewriteRule \.(css|ics|js|json|html|svg)$ %{REQUEST_URI}.br [L]
 
-#     # Prevent mod_deflate double gzip
-#     RewriteRule \.br$ - [E=no-gzip:1]
+    # Prevent mod_deflate double gzip
+    RewriteRule \.br$ - [E=no-gzip:1]
 
-#     <FilesMatch "\.br$">
+    <FilesMatch "\.br$">
 
-#         <IfModule mod_mime.c>
-#             # Serve correct content types
-#             AddType text/css              css.br
-#             AddType text/calendar         ics.br
-#             AddType text/javascript       js.br
-#             AddType application/json      json.br
-#             AddType text/html             html.br
-#             AddType image/svg+xml         svg.br
+        <IfModule mod_mime.c>
+            # Serve correct content types
+            AddType text/css              css.br
+            AddType text/calendar         ics.br
+            AddType text/javascript       js.br
+            AddType application/json      json.br
+            AddType text/html             html.br
+            AddType image/svg+xml         svg.br
 
-#             # Serve correct content charset
-#             AddCharset utf-8 .css.br \
-#                              .ics.br \
-#                              .js.br \
-#                              .json.br
-#         </IfModule>
+            # Serve correct content charset
+            AddCharset utf-8 .css.br \
+                             .ics.br \
+                             .js.br \
+                             .json.br
+        </IfModule>
 
-#         # Force proxies to cache brotlied and non-brotlied files separately
-#         Header append Vary Accept-Encoding
+        # Force proxies to cache brotlied and non-brotlied files separately
+        Header append Vary Accept-Encoding
 
-#     </FilesMatch>
+    </FilesMatch>
 
-#     # Serve correct encoding type
-#     AddEncoding br .br
+    # Serve correct encoding type
+    AddEncoding br .br
 
-# </IfModule>
+</IfModule>
 
 # ----------------------------------------------------------------------
 # | GZip pre-compressed content                                        |

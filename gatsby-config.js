@@ -13,6 +13,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-brotli`,
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         respectDNT: false,
