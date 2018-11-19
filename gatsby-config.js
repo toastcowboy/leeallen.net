@@ -12,9 +12,7 @@ module.exports = {
     title: `Lee Allen — Digital product leader`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-brotli`,
-    },
+    `gatsby-plugin-brotli`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -22,9 +20,7 @@ module.exports = {
         trackingId: `UA-474631-1`,
       },
     },
-    {
-      resolve: `gatsby-plugin-react-helmet`,
-    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
@@ -84,5 +80,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-zopfli`,
   ],
 };
