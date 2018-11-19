@@ -1,6 +1,11 @@
 @import '../utils/mixins';
 @import '../utils/variables';
 
+body,
+html {
+  overscroll-behavior: none;
+}
+
 .container {
   width: 100%;
 }
