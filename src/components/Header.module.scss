@@ -43,6 +43,7 @@
   text-align: center;
   transition: border-bottom 250ms ease-in-out;
   width: 33.3333333%;
+  will-change: border-bottom;
 }
 
 .navItem:hover,
