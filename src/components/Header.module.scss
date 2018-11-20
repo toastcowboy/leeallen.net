@@ -9,7 +9,7 @@
 }
 
 .headerWrapper {
-  background-color: $colorLightestGray;
+  background-color: $colorGray8;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
@@ -35,20 +35,24 @@
 }
 
 .navItem {
-  border-bottom: 2px solid $colorLightGray;
+  border-bottom: 2px solid $colorGray7;
+  color: $colorGray2;
   flex: auto;
   line-height: 27px;
   margin-bottom: 0;
   padding-top: 3px;
   text-align: center;
-  transition: border-bottom 250ms ease-in-out;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  transition-property: border-bottom-color, color;
   width: 33.3333333%;
-  will-change: border-bottom;
+  will-change: border-bottom, color;
 }
 
 .navItem:hover,
 .navItemActive {
-  border-bottom-color: $colorDarkGray;
+  border-bottom-color: $colorGray1;
+  color: $colorGray1;
 }
 
 .navLink {

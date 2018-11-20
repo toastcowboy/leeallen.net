@@ -23,7 +23,7 @@
 
 @media all and (min-width: ($largeMinWidth + ($gutter * 2))) {
   .pieceImage {
-    border: $gutter solid $colorLightestGray;
+    border: $gutter solid $colorGray8;
     left: auto;
     margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
     margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
