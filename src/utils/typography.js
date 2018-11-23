@@ -26,7 +26,7 @@ const typography = new Typography({
   blockMarginBottom: `24px`,
   includeNormalize: true,
   overrideStyles: ({adjustFontSizeTo, rhythm}, options, styles) => ({
-    'a': { color: `hsl(0, 0%, 5%)` },
+    'a': { color: `#cc3300` },
     'a:hover': { textDecoration: `none` },
     '.typography-align-left': { textAlign: `left` },
     '.typography-align-center': { textAlign: `center` },
