@@ -1,6 +1,8 @@
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import React from 'react';
+import { rhythm } from "../utils/typography";
 
 import styles from './post.module.scss';
 
@@ -43,7 +45,14 @@ export default props => {
       {props.excerpt ? (
         <p className={`typography-small`}><Link to={props.link}>Read more</Link></p>
       ) : (
-        <p className={`typography-small`}><Link to={`/word`}>Back to Writing</Link></p>
+        <React.Fragment>
+          <p className={`typography-small`}><Link to={`/word`}>Back to Writing</Link></p>
+          <div className={styles.postTwitter}>
+            <p style={{paddingBottom: rhythm(0.5), paddingTop: rhythm(0.5),}}>
+              You should follow me on Twitter <OutboundLink href={`https://twitter.com/leeericallen`} rel={`nofollow noopener noreferrer`} target={`_blank`}>here</OutboundLink>.
+            </p>
+          </div>
+        </React.Fragment>
       )}
     </div>
   );
