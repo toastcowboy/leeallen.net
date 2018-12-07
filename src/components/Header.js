@@ -32,11 +32,6 @@ export default props => {
       label: `Work`,
       pattern: /^\/work/,
     },
-    {
-      href: `/word`,
-      label: `Writing`,
-      pattern: /^\/word/,
-    },
   ];
   const navLogoClassNames = [styles.navLogo];
 
