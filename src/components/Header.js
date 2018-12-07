@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 
 import logo from '../assets/icons/logo.svg';
+import resume from '../downloads/lee-allen-resume.pdf';
 import styles from './Header.module.scss';
 
 const NavItem = props => {
@@ -31,11 +32,6 @@ export default props => {
       href: `/work`,
       label: `Work`,
       pattern: /^\/work/,
-    },
-    {
-      href: `/word`,
-      label: `Writing`,
-      pattern: /^\/word/,
     },
   ];
   const navLogoClassNames = [styles.navLogo];
