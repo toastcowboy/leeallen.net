@@ -17,7 +17,7 @@ import styles from './index.module.scss';
 const elsewhereLinks = [
   {
     altText: `LinkedIn logo`,
-    href: `https://www.linkedin.com/in/leeericallen`,
+    href: `https://linkedin.com/in/leeericallen`,
     logo: logoLinkedIn,
   },
   {
