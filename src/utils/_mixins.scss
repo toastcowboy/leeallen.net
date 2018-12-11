@@ -1,5 +1,10 @@
 @import './variables';
 
+@mixin barWrapper {
+  margin-left: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+  margin-right: calc(-100vw / 2 + #{$largeMinWidth} / 2);
+}
+
 @mixin gridStandard {
   column-gap: $gutter;
   display: grid;
