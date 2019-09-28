@@ -77,7 +77,7 @@ export default ({ data, location }) => {
           className={styles.headshot}
           fluid={data.file.childImageSharp.fluid}/>
         <h1 className={`${styles.copy} typography-align-center`}>
-          I’m Lee, a digital product leader living in Southern California. See my <Link to={`/work`}>work</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
+          I’m Lee, a digital product leader living in the Bay Area. <br/>See my <Link to={`/work`}>work</Link>, download my <a href={resume}>resume</a>, or just <a href={`mailto:lee@leeallen.net`}>say hi</a>.
         </h1>
         <div className={styles.elsewhere}>
           {elsewhereLinks.map((link, index) => <ElsewhereLink key={index} {...link}/>)}
